@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#303031",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary": "#003548",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-tint": "#ffb4a9",
+                    "primary-container": "#c0392b",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary": "#80d0f8",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#001e2b",
+                    "on-error-container": "#ffdad6",
+                    "background": "#131313",
+                    "tertiary-fixed": "#c0e8ff",
+                    "surface-container": "#201f1f",
+                    "secondary": "#c7c6c6",
+                    "surface-variant": "#353534",
+                    "on-secondary-container": "#b5b5b5",
+                    "on-secondary-fixed-variant": "#464747",
+                    "on-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "surface-bright": "#3a3939",
+                    "tertiary-container": "#007296",
+                    "on-tertiary-container": "#d3eeff",
+                    "tertiary-fixed-dim": "#80d0f8",
+                    "secondary-fixed": "#e3e2e2",
+                    "on-surface-variant": "#e1bfb9",
+                    "primary-fixed": "#ffdad5",
+                    "on-primary-container": "#ffe5e1",
+                    "surface-container-highest": "#353534",
+                    "on-primary-fixed-variant": "#8e130c",
+                    "on-tertiary-fixed-variant": "#004d66",
+                    "primary": "#ffb4a9",
+                    "outline-variant": "#59413d",
+                    "primary-fixed-dim": "#ffb4a9",
+                    "inverse-primary": "#b02d21",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-on-surface": "#313030",
+                    "outline": "#a88a85",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#410000",
+                    "on-primary": "#690001",
+                    "secondary-container": "#464747"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 1.25rem;
+        }
+        .masonry-grid {
+            columns: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) { .masonry-grid { columns: 2; } }
+        @media (min-width: 1280px) { .masonry-grid { columns: 3; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 z-50 w-full bg-neutral-950/80 backdrop-blur-xl border-none">
+<div class="flex justify-between items-center px-12 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-xl tracking-[0.25em] font-light text-neutral-100 font-serif uppercase">
+                MARIO MOTORS
+            </div>
+<div class="hidden md:flex items-center gap-8 font-serif tracking-widest uppercase text-sm">
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors" href="#">Home</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors" href="#">About</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors" href="#">Services</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors" href="#">Cars</a>
+<a class="text-red-600 border-b border-red-600 pb-1" href="#">Gallery</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-r from-primary-container to-on-primary-fixed-variant px-6 py-2 text-on-primary-container text-xs tracking-widest uppercase font-bold hover:scale-95 transition-all duration-300">
+                Book Appointment
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto">
+<!-- Breadcrumb & Header -->
+<div class="mb-16">
+<nav class="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-secondary mb-6">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined !text-[10px]">chevron_right</span>
+<span class="text-on-surface">Gallery</span>
+</nav>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+<div>
+<h1 class="text-6xl md:text-8xl font-headline font-bold leading-[1.1] mb-4">
+                        The <span class="text-primary italic">Obsidian</span> Gallery
+                    </h1>
+<p class="text-secondary max-w-md leading-relaxed text-sm tracking-wide">
+                        A curated showcase of precision engineering, automotive restoration, and exotic acquisitions. Witness the transition from raw metal to rolling masterpiece.
+                    </p>
+</div>
+<div class="flex md:justify-end gap-12">
+<div class="text-center">
+<div class="text-4xl font-headline text-on-surface">450+</div>
+<div class="text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Projects</div>
+</div>
+<div class="text-center">
+<div class="text-4xl font-headline text-on-surface">12</div>
+<div class="text-[10px] tracking-[0.2em] uppercase text-secondary mt-1">Awards</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Tags (Editorial Style) -->
+<div class="flex flex-wrap gap-x-12 gap-y-4 mb-12 border-b border-outline-variant/15 pb-8">
+<button class="text-xs tracking-[0.25em] uppercase text-on-surface border-b border-primary pb-1">All Works</button>
+<button class="text-xs tracking-[0.25em] uppercase text-secondary hover:text-on-surface transition-colors">Restorations</button>
+<button class="text-xs tracking-[0.25em] uppercase text-secondary hover:text-on-surface transition-colors">Exotic Sales</button>
+<button class="text-xs tracking-[0.25em] uppercase text-secondary hover:text-on-surface transition-colors">Custom Paint</button>
+<button class="text-xs tracking-[0.25em] uppercase text-secondary hover:text-on-surface transition-colors">Performance Tuning</button>
+</div>
+<!-- Masonry Gallery Grid -->
+<div class="masonry-grid">
+<!-- Item 1: Large Restoration -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative overflow-hidden bg-surface-container">
+<img class="w-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" data-alt="close-up of a classic vintage Porsche 911 being polished in a dimly lit high-end garage with focused spotlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCpWpwS1VxzY4W3WbGgs0JX0kzi4zQpFJuPJM1X1kKin41n6Y9zGgGzrV-bZRbg8sIlwueBANKO_K7lOaZDXidhU5qTjET480gCGBN3iL6aBKLJkh9gqWcMMEn8A_Ogs_BREEzbXvbfKn5ducTAJc-E056_nRhdzs3JivzkMaMCBzgHd78mQqaHUWPxxRDDcYQ2K3u4xlOFHGzxrOdwvOKHC-l65XqjYWIjioZEzP8IfG1sq4O94mHf6H7i3-i4zSkdNFWSDlKcZo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-[10px] tracking-[0.2em] text-primary uppercase mb-2">Restoration</span>
+<h3 class="text-2xl font-headline font-bold">1974 Carrera RS</h3>
+</div>
+</div>
+</div>
+<!-- Item 2: Vertical Detail -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative overflow-hidden bg-surface-container">
+<img class="w-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" data-alt="side profile of a sleek modern carbon fiber supercar wing in a dark showroom with dramatic sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqQauD18DK7yH1qQP2v1oTe1f65IRzsl-fpkuCpPg03XfE9dwuO96mozREc3pHUm_YSYa4wUvJCcIh5Wb4A5B2jiP1qaVQT3dWq2X-vUEy861EZdHsdoKC-kVfHR3y5gNU7dcyBow5iFqVihgv_EQasVWtYDLO2x78nGxu0udnotNHTQDRT5_997sZiKRUDU88g9D1gYrkLFaVLBVCkY7Ribkj7vLJOFsl5LwAQ88zBFWEGBYk4uOBDTcwyhvJLe0vv7kZrToUSKs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-[10px] tracking-[0.2em] text-primary uppercase mb-2">Performance</span>
+<h3 class="text-2xl font-headline font-bold">Aero-Carbon Kit</h3>
+</div>
+</div>
+</div>
+<!-- Item 3: Exotic Inventory -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative overflow-hidden bg-surface-container">
+<img class="w-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" data-alt="front view of a red Italian luxury sports car parked on a dark minimalist concrete floor with subtle atmospheric mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLUJ70H6Hx6vN__AnY8r7i0L_hshz0BolvjY9OClWFw3-T_x2v3DgGr2tDiCq32ODAYWDoJ503oA2B2thFG67lzVrvqUaBrHFFfBFKY8BRMz9gN28On-GlOTbawrorm_FiLdaSSUdLgiUaJa-4cmNWZf192WHGZpYPPZBzasPYCxvICaoFIALlUWsmrpmso5thtpTK9tFoy5DJhwCId-RHdVwrwCus2v0MLUgtizz8W1G9DjQNRyO59v0m1RsULG7NnVSN3Uu4n-I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-[10px] tracking-[0.2em] text-primary uppercase mb-2">Sales</span>
+<h3 class="text-2xl font-headline font-bold">LaFerrari 2015</h3>
+</div>
+</div>
+</div>
+<!-- Item 4: Wide Workshop Shot -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative overflow-hidden bg-surface-container">
+<img class="w-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" data-alt="wide shot of a clean automotive workshop with multiple vintage cars under white precision lighting and deep black shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs9RvDVSai_YpoxeDeq3aYPpK4a89xgpwzpHRbnkd_5qfqJiOo_RKKlQpe6bAF0T0Qixbu-agEVXuSlZKr1cA8k_GXvfY33eXg2zwlZI6B5gpm73ashcnvyWu_V99Duo0ldgdfP7Bs8ODvyLKJks73dMVESGqTZ7SS4KyWm-gjpkMkmaGYXpjXPOQ3ejvJYJ7vHfL3O19kE7-bcqUpRa0Cl4IEzVopopn18mNoR75SU765kKoLSodb6Ehr5fcC8hD4VtMeoNqugsI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-[10px] tracking-[0.2em] text-primary uppercase mb-2">The Studio</span>
+<h3 class="text-2xl font-headline font-bold">Main Service Bay</h3>
+</div>
+</div>
+</div>
+<!-- Item 5: Engine Detail -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative overflow-hidden bg-surface-container">
+<img class="w-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" data-alt="extreme close up of a chrome engine block with intricate details and reflections of blue and red neon lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1ReaN0B0zr91mBH32yCLOVK19FbdhKBMga35BgZ2UCmQ3hECtfFbbd5uDmRpVW4QDDOqlDa-fGuBOSBkj_we1ybv0ZYPrI9L1O4QBRmxtOGKdOHSR4KB5LZPfoqp52SypMeLIKm7-NpP59rgS84d3qEWigcML2E8IAb_T-MD33NvJqNjgrJTX63nKeL9W7p83d9yWCRB87u68U26WRDotk0aHHwaXkzJqjwEJrAj_kzbOy7LuhFyEx9-7wLQXkWK4TbLHnQFh9Qg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-[10px] tracking-[0.2em] text-primary uppercase mb-2">Tuning</span>
+<h3 class="text-2xl font-headline font-bold">V12 Blueprinting</h3>
+</div>
+</div>
+</div>
+<!-- Item 6: Classic Exterior -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative overflow-hidden bg-surface-container">
+<img class="w-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" data-alt="black vintage luxury sedan parked in front of a modern architectural building at night with warm golden window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGicgstNH5poBqVyTtx6NRohjyG7YSyUmrO7W3MJ-ZNKAXR6dpHB56UpjRVB02FN2xUOF0mxvgusi5aSKSqEtDTXsXPOfp7f8kH_zdaONkWOuRkvkVjsu-5or-KAb7JFa--x9rgMBKZdy4aPQzVLzlUTqtYtqdGfSRDen8fqjF9Ff1upoBVb9wpSFI2KLaX3Cy_fTAtSg0Jpm6Ypcxs0we-yAfTQSsU6ZZu7uVDdZGsg9X0AzkHrAeYGSziHwLwL9yADooYKge4Jc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+<span class="text-[10px] tracking-[0.2em] text-primary uppercase mb-2">Preservation</span>
+<h3 class="text-2xl font-headline font-bold">BMW 3.0 CSL</h3>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="mt-20 flex flex-col items-center">
+<button class="group flex flex-col items-center gap-4">
+<span class="text-xs tracking-[0.4em] uppercase text-secondary group-hover:text-primary transition-colors">Explore More</span>
+<div class="w-[1px] h-24 bg-gradient-to-b from-primary to-transparent"></div>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-neutral-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+<div class="md:col-span-2">
+<div class="text-2xl tracking-[0.25em] font-light text-neutral-100 mb-8 font-serif uppercase">MARIO MOTORS</div>
+<p class="text-neutral-500 max-w-sm font-sans text-sm leading-relaxed tracking-wider">
+                    Redefining automotive luxury through precision engineering and editorial design. The world's finest vehicles, curated for the modern collector.
+                </p>
+</div>
+<div>
+<h4 class="text-neutral-100 font-serif uppercase tracking-[0.2em] text-xs mb-8">Navigation</h4>
+<ul class="space-y-4 font-sans text-sm tracking-wider">
+<li><a class="text-neutral-500 hover:text-red-500 transition-colors" href="#">Inventory</a></li>
+<li><a class="text-neutral-500 hover:text-red-500 transition-colors" href="#">Services</a></li>
+<li><a class="text-neutral-500 hover:text-red-500 transition-colors" href="#">Gallery</a></li>
+<li><a class="text-neutral-500 hover:text-red-500 transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-neutral-100 font-serif uppercase tracking-[0.2em] text-xs mb-8">Legal</h4>
+<ul class="space-y-4 font-sans text-sm tracking-wider text-neutral-500">
+<li><a class="hover:text-red-500 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-red-500 transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-red-500 transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-outline-variant/5 text-center">
+<p class="text-neutral-500 font-sans text-[10px] tracking-[0.3em] uppercase">
+                © 2025 Mario Motors. All rights reserved.
+            </p>
+</div>
+</footer>
+</body></html>

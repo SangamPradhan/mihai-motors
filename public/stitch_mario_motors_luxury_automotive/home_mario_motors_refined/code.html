@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Noto+Serif:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#c0392b",
+                        "on-primary": "#ffffff",
+                        "surface": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#59413d",
+                        "secondary": "#c7c6c6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at center, #1e1e1e 0%, #0a0a0a 100%);
+        }
+        .ignite-button {
+            background: #c0392b;
+            transition: all 0.3s ease;
+        }
+        .ignite-button:hover {
+            background: #a93226;
+            transform: scale(1.05);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-white">
+<!-- Loading Screen Curtain -->
+<div class="fixed inset-0 z-[100] bg-[#0f0f0f] flex items-center justify-center pointer-events-auto transition-transform duration-[1500ms] ease-[cubic-bezier(0.7,0,0.3,1)]" id="loader">
+<div class="text-center">
+<h2 class="text-4xl tracking-[0.5em] font-light text-neutral-100 font-serif uppercase mb-4">MARIO MOTORS</h2>
+<div class="w-12 h-0.5 bg-primary mx-auto animate-pulse"></div>
+</div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-12 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-xl tracking-[0.25em] font-light text-neutral-100 font-serif uppercase">
+            MARIO MOTORS
+        </div>
+<div class="hidden md:flex space-x-8">
+<a class="text-red-600 border-b border-red-600 pb-1 font-serif tracking-widest uppercase text-sm" href="#">Home</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors font-serif tracking-widest uppercase text-sm" href="#">About</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors font-serif tracking-widest uppercase text-sm" href="#">Services</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors font-serif tracking-widest uppercase text-sm" href="#">Cars</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors font-serif tracking-widest uppercase text-sm" href="#">Gallery</a>
+<a class="text-neutral-400 hover:text-neutral-100 transition-colors font-serif tracking-widest uppercase text-sm" href="#">Contact</a>
+</div>
+<button class="ignite-button px-6 py-2 text-white font-label text-xs tracking-widest uppercase font-bold">
+            Book Appointment
+        </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex flex-col items-center justify-center hero-gradient overflow-hidden">
+<div class="container mx-auto px-12 flex flex-col md:flex-row items-center justify-between relative z-10 w-full h-full">
+<!-- Left Text -->
+<div class="flex-1 text-center md:text-left z-20">
+<h1 class="text-8xl md:text-[10rem] font-headline font-bold text-on-surface tracking-tighter leading-none opacity-90 drop-shadow-2xl">
+                    We <br/><span class="text-primary">Fix.</span>
+</h1>
+</div>
+<!-- Center Image Container -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="relative w-full max-w-5xl px-4">
+<img alt="Red Supercar" class="w-full h-auto object-contain drop-shadow-[0_45px_45px_rgba(0,0,0,0.8)] scale-110 md:scale-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCE9DrfutnEVXxKYmZhcJ4e00ZvpgQiAZe7V_Q4zFIe1jBfLWHM6EWbFeUH2qooHhWnTThtlhDduLrYRoSj2YzjVUlI_iYM1qcmefXlOvQPdaiRTUu7t7wD12qb92eULPDqOjcnYiE_6G4CacFdd4ls1B7Vuf5NUpI3viJKUDhmxwgVqE7HzzcE6NB-V9lio9jHla7z7bblpWL_ETlrhlzJh1KZsaOrGKqfC6RJlb2xKPZPTA1Wb1dwghpZXPbHvQj41NlQ-15Q5Q"/>
+</div>
+</div>
+<!-- Right Text -->
+<div class="flex-1 text-center md:text-right z-20">
+<h1 class="text-8xl md:text-[10rem] font-headline font-bold text-on-surface tracking-tighter leading-none opacity-90 drop-shadow-2xl">
+                    We <br/><span class="text-primary">Flip.</span>
+</h1>
+</div>
+</div>
+<!-- Hero CTA -->
+<div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-30">
+<button class="ignite-button px-12 py-5 text-white font-label text-sm tracking-[0.3em] uppercase font-black shadow-2xl">
+                Explore Our Cars
+            </button>
+</div>
+</section>
+<!-- About Us Snippet -->
+<section class="bg-surface py-32 fade-in">
+<div class="max-w-4xl mx-auto px-12 text-center">
+<p class="text-2xl md:text-4xl font-headline leading-relaxed text-on-surface mb-8">
+                Defining automotive excellence since 2015. We breathe life into forgotten engineering and curate the finest luxury fleet in the city.
+            </p>
+<a class="inline-block font-label text-primary tracking-[0.2em] uppercase text-sm border-b border-primary/30 hover:border-primary transition-all pb-1" href="#">
+                Learn More
+            </a>
+</div>
+</section>
+<!-- Offerings Section (Bento Grid Inspired by Image 6 Styling) -->
+<section class="py-24 px-12 max-w-screen-2xl mx-auto fade-in">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
+<div class="md:col-span-2 relative group overflow-hidden bg-neutral-900">
+<img alt="Bespoke Interiors" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEvN_gVSS4l02dwJiFkFU9VyyWrayBIUjhuy4pwipcRy1NvPzO9Co1WNkJFd4U-g9ysXSY8lsVsCpG42D5s_2Sb87tReq8q8MwD3WC7TBnVPhxuolpEJqk8TyM40fRDOLiKN3kW1g2YNtcdeBEh00GWzAP9vRMHv9xm7PPUPQpIwK9JIcx0875XXFYHimi42WcRQPS7yZIeYv_sI_LsHPbzT-YsQaO96yjob05MtY_ZRz4BSeYKs9WEDChCkbilXvtt2rJ-x7Wwu0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="text-4xl font-headline mb-2">Bespoke Refinement</h3>
+<p class="text-secondary text-sm tracking-widest uppercase">Interiors tailored to your soul</p>
+</div>
+</div>
+<div class="relative group overflow-hidden bg-neutral-900">
+<img alt="Engine Upgrades" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWfqPN4Cc30yzFRXzbUjBrE9QGX0Ys4j3MvmDcFZkTG6Bnq0k5e3i_XdtQDo2MHuIGQPVqBeeONev5OzagLKSBffTEge9cfZq7R1ieTwBlfWNnN6U6FNjSU94IrVfFhhJVvgj34wT_YJv5tFPWrh6KhnB6krXr58hFROOGcsgRozXd1clJezRDgqFs0u4KB3XPRrVAyTNYo7fGSrQSmvMtwapPguYDFTM3ScixxzPFJyrMK5Tt0635_vac1M3QRgpmH0NrrsaOiPo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="text-3xl font-headline mb-2">Power Unbound</h3>
+<p class="text-secondary text-sm tracking-widest uppercase">Stage 3 Tuning &amp; Calibration</p>
+</div>
+</div>
+<div class="relative group overflow-hidden bg-neutral-900">
+<img alt="Classic Restorations" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjRz7W9DEwb1_njtHx6_4nX2G_a9FNOJU3LKQ3SJHi1M7TXuGExdfiCpCuFk49FdpR907BgnRh5GFh2dFwKxmKw3jWj7l03SpTegLMX9uxJBeKLhrUQP56ZFBjRR29kYjaWc1HzR6BPBpfcvt9DvqC_uXzRR-CTgYkKUTShrNxmhVrB2CHOYkfV9E-ZjGucXU9tI7u93lAan3IEFjAt9SWqOvOU3To_75j81t0oVs8s9Wvot80On65J0DjWFWX5CG1zOE7nfJYz-M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="text-3xl font-headline mb-2">The Classics</h3>
+<p class="text-secondary text-sm tracking-widest uppercase">Preserving Automotive History</p>
+</div>
+</div>
+<div class="md:col-span-2 relative group overflow-hidden bg-neutral-900">
+<img alt="Fleet" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk6zICDXDN6h8D2n5cOm0qiq0zGr7nxPICYx86ncaEEkJR2Q3hXbb6158LJTR0GVFJ9bHF081SfmUOrD2FdfNQp4VaOP1GuDgGzraM5nplToDsfZBqk6RRGAw0xUZcbxirrsFwZE2y179-DujnhycJyjQnSbAXLHcbXHJ53D5ru8JlIIA0LxynN6eDdAt0aIXurCGxDaX1n_3mCkFoM5Ha34Nw8FM-ktxGymOgvvJRklHMEtS4mHNIQE5gDdjyqZT09IQb77wDPF8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="text-4xl font-headline mb-2">Curated Inventory</h3>
+<p class="text-secondary text-sm tracking-widest uppercase">Hand-picked excellence for sale</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid (Styled after Image 7 clean layout) -->
+<section class="py-32 bg-neutral-900/50 fade-in">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="mb-20">
+<span class="text-primary font-label tracking-[0.4em] uppercase text-xs mb-4 block">Precision Care</span>
+<h2 class="text-5xl font-headline tracking-tight">Our Expertise</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="group flex flex-col items-center md:items-start text-center md:text-left">
+<div class="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="home_repair_service">home_repair_service</span>
+</div>
+<h4 class="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Car Repair</h4>
+<p class="text-secondary leading-relaxed">Full structural and mechanical restoration using OEM parts and precision tools.</p>
+</div>
+<div class="group flex flex-col items-center md:items-start text-center md:text-left">
+<div class="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="settings_input_component">settings_input_component</span>
+</div>
+<h4 class="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Engine Upgrades</h4>
+<p class="text-secondary leading-relaxed">Performance mapping, turbo installations, and exhaust system optimization.</p>
+</div>
+<div class="group flex flex-col items-center md:items-start text-center md:text-left">
+<div class="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="format_paint">format_paint</span>
+</div>
+<h4 class="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Paint Jobs</h4>
+<p class="text-secondary leading-relaxed">Custom automotive finishes including matte, pearlescent, and protective wraps.</p>
+</div>
+<div class="group flex flex-col items-center md:items-start text-center md:text-left">
+<div class="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="fact_check">fact_check</span>
+</div>
+<h4 class="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Inspection</h4>
+<p class="text-secondary leading-relaxed">Rigorous 250-point diagnostic check for pre-purchase or safety compliance.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stat Cards -->
+<section class="py-24 border-y border-outline-variant/10 bg-surface fade-in">
+<div class="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 md:grid-cols-3 gap-24">
+<div class="flex flex-col items-center text-center">
+<span class="text-7xl font-headline font-extrabold text-on-surface mb-2">500+</span>
+<span class="text-primary font-label tracking-[0.3em] uppercase text-xs">Cars Repaired</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="text-7xl font-headline font-extrabold text-on-surface mb-2">10</span>
+<span class="text-primary font-label tracking-[0.3em] uppercase text-xs">Years Experience</span>
+</div>
+<div class="flex flex-col items-center text-center">
+<span class="text-7xl font-headline font-extrabold text-on-surface mb-2">100%</span>
+<span class="text-primary font-label tracking-[0.3em] uppercase text-xs">Satisfaction</span>
+</div>
+</div>
+</section>
+<!-- Available Fleet Horizontal Scroll -->
+<section class="py-32 overflow-hidden fade-in">
+<div class="max-w-screen-2xl mx-auto px-12 flex justify-between items-end mb-16">
+<div>
+<h2 class="text-5xl font-headline">Available Fleet</h2>
+</div>
+<button class="font-label text-primary tracking-[0.3em] uppercase text-sm flex items-center gap-2 hover:translate-x-2 transition-transform group">
+                View All <span class="material-symbols-outlined text-sm transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-8 px-12 pb-12 snap-x snap-mandatory">
+<!-- Car Card 1 -->
+<div class="min-w-[400px] bg-neutral-900 group snap-center border border-neutral-800 hover:border-primary/50 transition-colors">
+<div class="h-64 overflow-hidden relative">
+<img alt="Porsche 911" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvCjJq3HMED71-8-XQb5f1CffckU2kYjMVtydOgtggU8z1FnwAazQzgaW7f5o-GKiCT_8HdHn0wHjoMxU9zRI6qn6nbR5UHLxm43KTHLHXriWca6OOw0CWwRbAkT5wgHDRobZkknu1Ml58rsGveQMbFzJzws18Wz7wF1VOCIlGFrQzwYYuCCCsbJZp6kPoI0z2u0jJHdVQXOBS1ZUTf-lErh69RiZu49claXuURivphG0Hf_z_uvrlZpTED_dxOZZ9LuBtSX2ELY0"/>
+<div class="absolute top-4 right-4 bg-primary px-3 py-1 text-[10px] tracking-widest uppercase text-white font-black">Available</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Porsche 911 GT3</h3>
+<span class="text-xl font-headline text-primary">$185,000</span>
+</div>
+<div class="flex gap-6 text-secondary text-xs tracking-widest uppercase">
+<span>2023</span>
+<span>•</span>
+<span>1,200 Miles</span>
+</div>
+</div>
+</div>
+<!-- Car Card 2 -->
+<div class="min-w-[400px] bg-neutral-900 group snap-center border border-neutral-800 hover:border-primary/50 transition-colors">
+<div class="h-64 overflow-hidden relative">
+<img alt="BMW M4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Ccrnjh7zrYTaGuoeGg_qlZsVs9WMPFBIHhC4lYBTusYqVVWzgRzFx9D2hFar2qyKv_3QhIauaKGdGup9stDN2bMKnEN7NozrUf5zexhX5PAWKHX-Wf-RyRDlhKYypPtflQXeKk_aFzAu8RobIteq1ogWrEJ4zYKvYsWV_JlxpZNr44jJpt5BlVfFtGN8uqy4GPVzc4LojhahUySqwaDGQQjnilW1brhW8qpIrui4sdx3FwTeLeGRvRIU1vV7Z_3aaCkL1Y4EC00"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">BMW M4 Competition</h3>
+<span class="text-xl font-headline text-primary">$92,500</span>
+</div>
+<div class="flex gap-6 text-secondary text-xs tracking-widest uppercase">
+<span>2022</span>
+<span>•</span>
+<span>8,500 Miles</span>
+</div>
+</div>
+</div>
+<!-- Car Card 3 -->
+<div class="min-w-[400px] bg-neutral-900 group snap-center border border-neutral-800 hover:border-primary/50 transition-colors">
+<div class="h-64 overflow-hidden relative">
+<img alt="Range Rover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_WIxVKw8grPGlzmb9_4uxLxLr3vr2OxKRPCEnSc5_l5HDBXNaJU0mzhQKstyoJWJe_6uahgTmOPcWs2yOVohsLhHwM-5lT7IpeLuB9o7OUaiLB0JC1B3LujMMts6a8eK3jA2UxWOBLyFdnVzdC-t0AoQ6aDBrYzBXDYC8DrAv5-Ytgm1IJXANTL0GqrZyYVVZbcA_kW07CdCOli-zspgQlQPtHmqiqpkTDRH7SlbO-X4oRXBE422O2sEBXytd7P9OEUz3lWV_ko"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline">Range Rover Sport SVR</h3>
+<span class="text-xl font-headline text-primary">$115,000</span>
+</div>
+<div class="flex gap-6 text-secondary text-xs tracking-widest uppercase">
+<span>2021</span>
+<span>•</span>
+<span>12,000 Miles</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- We Buy Your Car Section -->
+<section class="bg-black py-32 fade-in">
+<div class="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-6xl md:text-8xl font-headline mb-8 leading-tight">We buy old and broken cars.</h2>
+<p class="text-secondary text-xl max-w-lg mb-12">No matter the condition. We see the potential. Get a competitive quote within 24 hours and direct cash payment.</p>
+<button class="ignite-button px-12 py-5 text-white font-label text-sm tracking-[0.3em] uppercase font-black">
+                    Schedule Appointment
+                </button>
+</div>
+<div class="relative h-[600px] overflow-hidden">
+<img alt="Classic Restoration" class="w-full h-full object-cover grayscale opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ujkKRf4YJqQF502fG0vzsLodJmArU7K7Oh7TJ9be7v0IV6G_Ef5A3EGYR6fLO7RFqL9rp6YGERm6O-zAd8z2WJbrXKqez-W9yg7xHtmBPkiNttdlGKVI6VyKV1jccy8TDvDw1vv-hpJBH2ILP5a2QcTIExuok2b-7b7GTT-O74zgR26PaIoaGJVVH9dKsEjMd-sSjMBRQUb91hbP9m3Ou5mE1YanqZ44XA6CcNItANAdr-KFcoPJjqBzd17nK0sF8igeeacIJHI"/>
+<div class="absolute inset-0 border border-primary/20 m-6"></div>
+</div>
+</div>
+</section>
+<!-- Blog Section -->
+<section class="py-32 fade-in">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="flex justify-between items-end mb-16">
+<h2 class="text-5xl font-headline">Editorial</h2>
+<span class="text-primary font-label tracking-[0.3em] uppercase text-xs">The Ledger</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Blog Card 1 -->
+<article class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-8 relative">
+<img alt="Vintage restoration" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyni4Cz1O2fjyPv2-JY-YfzlfBGIODPk74-JCg_TJZAIFJj1VdY1iPsU9xe_FazVLvZgBq4U2McVSTJEwB7JdygULoXYa9f9I5AcGW-jb5rJ0HMs37X0mMNE2shPW6-sK-0Iz3RmZP-jEpUspBcgZ-w4cKFZ5XNRykSbHD5I_D7riLSlqG2l5bHb-P8D1mrLLkPxl1k6qFh-ily7x2Jq2VydZoyGr1cQd-1IQtC4-j7QE_WRMwBjttIZZrOzD8ynNqMOa-Hz3cfLw"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<h3 class="text-2xl font-headline mb-4">The Art of the Barn Find</h3>
+<p class="text-secondary leading-relaxed mb-6">Uncovering hidden gems and the intricate process of bringing them back to life.</p>
+<span class="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Entry</span>
+</article>
+<!-- Blog Card 2 -->
+<article class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-8 relative">
+<img alt="Modern tech" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_VEwrTsBEsXI33xgevO79YmVurayK7SEKQf6PI0NnkHC3HWnsLdx34XmXu6-23CM4IQs_jXhSf0jjaYn2IH5MOuK3W6yp0FR0aQFBnnhzBql0s7hfdYXtHcuDpTe7QEgKrL1jlhiIy3feS9Gio7X9cZvACEx94yqnFxUUCwUBzOxYMzJVLMxLDvK7sTKSzuMRLtSDE_7ho9iDaAAS-yiVddujKMKzXtSDt3PCp06AnsBfjcOChatAfow6y8W4a3aYPAE2I8JYpWc"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<h3 class="text-2xl font-headline mb-4">Hybrid vs. Pure ICE</h3>
+<p class="text-secondary leading-relaxed mb-6">Analyzing the future of luxury performance in the age of electrification.</p>
+<span class="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Entry</span>
+</article>
+<!-- Blog Card 3 -->
+<article class="group cursor-pointer">
+<div class="aspect-[4/5] overflow-hidden mb-8 relative">
+<img alt="Maintenance" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3BxX3dllzBrs87LJVs9VZjbvIx6kIpcz8wnPG5UqieSqY6P9OuhF-1AOdU6VO9i_pyRZJPpjx3QXUSjt-wRjL9UClOEKLO3xFoH9VKrMky9hdIwFemqDD8v1lriYPHLB6KpaIfjCkNTiU4k8pRBZ4poztTJzRZbeP0Mmggw4VW4qofAVCTO9kcpfcN3OfuZApUXIE8rShQPuZEpNeSMTBIdTg08irw0Y8zTv0UPDaEKJ4-DL0DRGrEw2Me-bKZpM4pAykHNJK-fA"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<h3 class="text-2xl font-headline mb-4">Maintenance as Ritual</h3>
+<p class="text-secondary leading-relaxed mb-6">Why periodic servicing is more than just oil changes—it's legacy preservation.</p>
+<span class="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Entry</span>
+</article>
+</div>
+</div>
+</section>
+<!-- Bottom Banner -->
+<section class="py-40 bg-neutral-900 relative overflow-hidden fade-in">
+<div class="absolute inset-0 opacity-10">
+<img alt="Detail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Yx17fvLT5nTRU5IbJD9Zf7KHrcQYKeezb_frsVoKguBkR0cu8sAvkC_zTQyP53yGxYhT4vUwIxjgxEwkBibrLsDzZfQAX4sXJOE31MY0AOpHTJvF6DLJt0aO1NPjLtvwfU5Q37JW-GBGnA-sbhjOzm6Z5uk2Pn8H76CPIQT1YS7KeCgbtxZ_-GyMl5EWje4lG-OTUeL47f8JfTLaObHxtxuqaktMSdntkfzPMuMoHsPFowvWaDH1rTWLsc5Zo4cTGUBsiS8hw18"/>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-12 text-center">
+<h2 class="text-4xl md:text-6xl font-headline mb-12 leading-tight">Looking for an affordable car?</h2>
+<button class="ignite-button px-12 py-5 text-white font-label text-sm tracking-[0.3em] uppercase font-black shadow-2xl">
+                View Catalog
+            </button>
+</div>
+</section>
+</main>
+<!-- Footer (Based on COMPONENTS_3) -->
+<footer class="bg-neutral-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+<div class="col-span-1">
+<div class="text-2xl tracking-[0.25em] font-light text-neutral-100 mb-8 font-serif uppercase">
+                MARIO MOTORS
+            </div>
+<p class="text-neutral-500 font-sans text-sm tracking-wider leading-relaxed">
+                The intersection of mechanical precision and aesthetic brilliance.
+            </p>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="text-neutral-100 font-serif tracking-[0.2em] uppercase text-xs mb-4">Navigation</h4>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Inventory</a>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Services</a>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Sell Your Car</a>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Restorations</a>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="text-neutral-100 font-serif tracking-[0.2em] uppercase text-xs mb-4">Company</h4>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Careers</a>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Privacy Policy</a>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Terms of Service</a>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="#">Cookie Policy</a>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="text-neutral-100 font-serif tracking-[0.2em] uppercase text-xs mb-4">Connect</h4>
+<p class="text-neutral-500 font-sans text-sm tracking-wider mb-2">1221 Apex Drive, Industrial District</p>
+<a class="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="mailto:contact@mariomotors.com">contact@mariomotors.com</a>
+<div class="flex space-x-6 mt-4">
+<span class="material-symbols-outlined text-neutral-500 cursor-pointer hover:text-primary transition-colors" data-icon="public">public</span>
+<span class="material-symbols-outlined text-neutral-500 cursor-pointer hover:text-primary transition-colors" data-icon="share">share</span>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-neutral-500 font-sans text-xs tracking-widest uppercase">
+<span>© 2025 Mario Motors. All rights reserved.</span>
+<div class="mt-4 md:mt-0 space-x-8">
+<span>Obsidian Gallery Design System</span>
+<span>V1.0.4</span>
+</div>
+</div>
+</footer>
+<script>
+    // Loading curtain animation
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const loader = document.getElementById('loader');
+            loader.style.transform = 'translateY(-100%)';
+            
+            // Trigger initial scroll animations
+            observeAnimations();
+        }, 1500);
+    });
+
+    // Intersection Observer for fade-in animations
+    function observeAnimations() {
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    // Horizontal Scroll with Mouse Wheel (Optional for better desktop UX)
+    const scrollContainer = document.querySelector('.snap-x');
+    if (scrollContainer) {
+        scrollContainer.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        });
+    }
+</script>
+</body></html>
