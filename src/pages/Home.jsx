@@ -54,7 +54,7 @@ const Home = () => {
       </section> */}
 
       {/* Modern Secondary Hero Section */}
-      <section className="relative min-h-screen flex flex-col pt-12 pb-8 bg-gradient-to-b from-[#1a1a1a] via-[#0a0a0a] to-black overflow-hidden">
+      <section className="relative min-h-screen flex flex-col pt-32 md:pt-40 pb-8 bg-gradient-to-b from-[#1a1a1a] via-[#0a0a0a] to-black overflow-hidden">
         <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 h-full flex flex-col items-center">
 
           {/* Text Layer: We Fix We Flip & Tagline */}
@@ -71,8 +71,8 @@ const Home = () => {
               </h1>
             </div>
 
-            {/* Right: Tagline in Circular Border */}
-            <div className="mt-8 md:mt-0 border-2 border-amber-500/40 rounded-[40px] px-8 py-5 bg-black/40 backdrop-blur-sm pointer-events-auto">
+            {/* Right: Tagline in Circular Border (HIDDEN ON MOBILE, MOVED BELOW) */}
+            <div className="hidden md:block border-2 border-amber-500/40 rounded-[40px] px-8 py-5 bg-black/40 backdrop-blur-sm pointer-events-auto">
               <p className="font-bold text-amber-500 text-center font-sans text-lg lg:text-xl tracking-wider leading-tight drop-shadow-lg max-w-[200px]">
                 Every car deserves<br />a second life!
               </p>
@@ -90,19 +90,28 @@ const Home = () => {
           </div>
 
           {/* Action Buttons: Pulled UP onto the bumper */}
-          <div className="relative z-30 flex justify-center items-center gap-4 md:gap-8 -mt-16 md:-mt-28 pb-10">
-            <Link to="/contact" className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-neutral-500 hover:border-white bg-black/60 backdrop-blur-md transition-all hover:scale-110 group shadow-2xl">
-              <span className="material-symbols-outlined text-neutral-200 text-2xl">call</span>
-            </Link>
+          <div className="relative z-30 flex flex-col items-center gap-6 -mt-16 md:-mt-28 mb-10">
+            <div className="flex justify-center items-center gap-3 md:gap-8">
+              <Link to="/contact" className="flex items-center justify-center w-11 h-11 md:w-16 md:h-16 rounded-full border-2 border-neutral-500 hover:border-white bg-black/60 backdrop-blur-md transition-all hover:scale-110 group shadow-2xl">
+                <span className="material-symbols-outlined text-neutral-200 text-xl md:text-2xl">call</span>
+              </Link>
 
-            <Link to="/inventory" className="bg-[#cc0000] hover:bg-red-700 text-white px-10 md:px-14 py-4 md:py-5 rounded-full font-black text-base md:text-xl tracking-widest flex items-center gap-3 transition-all hover:scale-105 shadow-[0_10px_40px_rgba(204,0,0,0.5)]">
-              EXPLORE FLEET
-              <span className="material-symbols-outlined font-black text-2xl">arrow_forward</span>
-            </Link>
+              <Link to="/inventory" className="bg-[#cc0000] hover:bg-red-700 text-white px-6 md:px-14 py-3 md:py-5 rounded-full font-black text-sm md:text-xl tracking-widest flex items-center gap-2 md:gap-3 transition-all hover:scale-105 shadow-[0_10px_40px_rgba(204,0,0,0.5)]">
+                EXPLORE FLEET
+                <span className="material-symbols-outlined font-black text-xl md:text-2xl">arrow_forward</span>
+              </Link>
 
-            <Link to="/contact" className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-neutral-500 hover:border-white bg-black/60 backdrop-blur-md transition-all hover:scale-110 group shadow-2xl">
-              <span className="material-symbols-outlined text-neutral-200 text-2xl">chat_bubble</span>
-            </Link>
+              <Link to="/contact" className="flex items-center justify-center w-11 h-11 md:w-16 md:h-16 rounded-full border-2 border-neutral-500 hover:border-white bg-black/60 backdrop-blur-md transition-all hover:scale-110 group shadow-2xl">
+                <span className="material-symbols-outlined text-neutral-200 text-xl md:text-2xl">chat_bubble</span>
+              </Link>
+            </div>
+
+            {/* Mobile Quote Section (Visible only on mobile) */}
+            <div className="md:hidden border-2 border-amber-500/40 rounded-[30px] px-6 py-3 bg-black/40 backdrop-blur-sm">
+              <p className="font-bold text-amber-500 text-center font-sans text-sm tracking-widest leading-tight drop-shadow-lg">
+                Every car deserves a second life!
+              </p>
+            </div>
           </div>
 
         </div>
