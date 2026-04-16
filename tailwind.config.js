@@ -13,7 +13,9 @@ export default {
         "surface": "#131313",
         "on-surface": "#e5e2e1",
         "surface-container": "#201f1f",
-        "outline-variant": "#59413d",
+        "surface-container-highest": "#2c2c2c",
+        "surface-container-low": "#1a1a1a",
+        "on-surface-variant": "#a7a7a7",
         "secondary": "#c7c6c6"
       },
       "borderRadius": {
