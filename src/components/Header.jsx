@@ -44,7 +44,8 @@ const Header = () => {
     ];
 
     return (
-        <nav id="main-header" className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 ease-in-out ${isSidebarOpen ? 'z-[10000]' : 'z-[50]'} ${scrolled && !isSidebarOpen ? 'translate-y-[-40px]' : ''}`}>
+        <>
+            <nav id="main-header" className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 ease-in-out z-[50] ${scrolled ? 'translate-y-[-40px]' : ''}`}>
             {/* Top Contact Bar */}
             <div className="bg-surface-container-highest/80 backdrop-blur-md px-4 lg:px-12 py-2 border-white/5 border-b">
                 <div className="flex justify-between items-center mx-auto max-w-screen-2xl w-full">
@@ -132,8 +133,9 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+        </nav>
 
-            {/* Sidebar Overlay */}
+        {/* Sidebar Overlay */}
             <div
                 className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => setSidebarOpen(false)}
@@ -212,7 +214,7 @@ const Header = () => {
                     </nav>
                 </div>
             </aside>
-        </nav>
+        </>
     );
 };
 
