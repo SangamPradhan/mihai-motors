@@ -14,10 +14,21 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Close sidebar on route change
     useEffect(() => {
         setSidebarOpen(false);
     }, [location]);
+
+    // Lock body scroll when sidebar is open
+    useEffect(() => {
+        if (isSidebarOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isSidebarOpen]);
 
     const toggleTheme = () => {
         document.documentElement.classList.toggle('dark');
@@ -33,7 +44,7 @@ const Header = () => {
     ];
 
     return (
-        <nav id="main-header" className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500 ease-in-out ${scrolled ? 'translate-y-[-40px]' : ''}`}>
+        <nav id="main-header" className={`fixed top-0 left-0 right-0 w-full transition-all duration-500 ease-in-out ${isSidebarOpen ? 'z-[10000]' : 'z-[50]'} ${scrolled && !isSidebarOpen ? 'translate-y-[-40px]' : ''}`}>
             {/* Top Contact Bar */}
             <div className="bg-surface-container-highest/80 backdrop-blur-md px-4 lg:px-12 py-2 border-white/5 border-b">
                 <div className="flex justify-between items-center mx-auto max-w-screen-2xl w-full">
@@ -124,13 +135,13 @@ const Header = () => {
 
             {/* Sidebar Overlay */}
             <div
-                className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] transition-opacity duration-300 ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998] transition-opacity duration-300 ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => setSidebarOpen(false)}
             ></div>
 
             {/* Mobile Sidebar */}
             <aside
-                className={`fixed top-0 right-0 h-full w-[320px] bg-surface-container-low border-l border-white/5 z-[70] shadow-2xl transition-transform duration-500 ease-in-out transform ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`fixed top-0 right-0 h-full w-[320px] bg-[#131313] border-l border-white/10 z-[9999] shadow-2xl transition-transform duration-500 ease-in-out transform ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'} opacity-100`}
             >
                 <div className="flex flex-col h-full">
                     {/* Sidebar Header */}
