@@ -1,17 +1,11 @@
-import emailjs from '@emailjs/browser';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import PageBanner from '../components/PageBanner';
+import { sendMail } from '../services/mailService';
 
 const MySwal = withReactContent(Swal);
-
-// --- EMAILJS CONFIGURATION ---
-// Replace these with your actual IDs from the EmailJS Dashboard: https://dashboard.emailjs.com/
-const EMAILJS_SERVICE_ID = 'service_coz1zts';
-const EMAILJS_TEMPLATE_ID = 'template_4qwzgc8';
-const EMAILJS_PUBLIC_KEY = 'IlDSeLG8CdU6rZ3Kk';
 
 const Appointment = () => {
     const location = useLocation();
@@ -44,19 +38,16 @@ const Appointment = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        const templateParams = {
-            from_name: formData.name,
-            from_email: formData.email,
-            from_phone: formData.phone,
-            service_type: serviceType,
-            preferred_date: formData.date,
-            message: formData.message || 'No additional message',
-            subject: `New Appointment Request: ${serviceType.toUpperCase()}`
-        };
-
         try {
-            // Functional Email Send
-            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+            await sendMail({
+                type: 'appointment',
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                service_type: serviceType,
+                preferred_date: formData.date,
+                message: formData.message || 'No additional message'
+            });
 
             await MySwal.fire({
                 title: <span className="font-headline">Request Received</span>,
@@ -78,7 +69,7 @@ const Appointment = () => {
 
             MySwal.fire({
                 title: <span className="font-headline">Booking Error</span>,
-                text: 'Our technical systems are momentarily offline. Please contact our Maranello office directly.',
+                text: error.message || 'Our technical systems are momentarily offline. Please contact our Maranello office directly.',
                 icon: 'error',
                 background: '#121212',
                 color: '#ffffff',
@@ -176,7 +167,7 @@ const Appointment = () => {
                         </div>
 
                         {(serviceType === 'fix' || serviceType === 'buy') && (
-                            <div className="space-y-1 animate-in fade-in duration-500">
+                            <div className="space-y-1">
                                 <label className="font-label text-[10px] uppercase tracking-[0.25em] text-outline">Preferred Date</label>
                                 <input
                                     required
@@ -190,7 +181,7 @@ const Appointment = () => {
                         )}
 
                         {serviceType === 'sell' && (
-                            <div className="space-y-4 animate-in fade-in duration-500">
+                            <div className="space-y-4">
                                 <label className="font-label text-[10px] uppercase tracking-[0.25em] text-outline">Vehicle Assets</label>
                                 <div className="group relative flex flex-col items-center justify-center border border-dashed border-outline-variant/40 py-12 px-6 hover:border-primary transition-colors cursor-pointer">
                                     <span className="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-colors mb-2">upload_file</span>

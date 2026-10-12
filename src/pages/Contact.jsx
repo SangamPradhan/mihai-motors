@@ -1,16 +1,10 @@
-import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import PageBanner from '../components/PageBanner';
+import { sendMail } from '../services/mailService';
 
 const MySwal = withReactContent(Swal);
-
-// --- EMAILJS CONFIGURATION ---
-// Replace these with your actual IDs from the EmailJS Dashboard: https://dashboard.emailjs.com/
-const EMAILJS_SERVICE_ID = 'service_coz1zts';
-const EMAILJS_TEMPLATE_ID = 'template_axacugr';
-const EMAILJS_PUBLIC_KEY = 'IlDSeLG8CdU6rZ3Kk';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -36,17 +30,14 @@ const Contact = () => {
 
         setIsSubmitting(true);
 
-        const templateParams = {
-            from_name: formData.name,
-            from_email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-            recipient_email: 'pradhansangam160@gmail.com'
-        };
-
         try {
-            // Functional Email Send
-            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
+            await sendMail({
+                type: 'contact',
+                name: formData.name,
+                email: formData.email,
+                subject: formData.subject,
+                message: formData.message
+            });
 
             await MySwal.fire({
                 title: <span className="font-headline text-3xl">Message Dispatched</span>,
@@ -68,7 +59,7 @@ const Contact = () => {
 
             MySwal.fire({
                 title: <span className="font-headline text-3xl">Transmission Failure</span>,
-                text: 'The secure communication channel is currently unavailable. Please use the direct phone line for urgent matters.',
+                text: error.message || 'The secure communication channel is currently unavailable. Please use the direct phone line for urgent matters.',
                 icon: 'error',
                 background: '#121212',
                 color: '#ffffff',
