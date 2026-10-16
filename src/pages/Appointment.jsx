@@ -50,7 +50,7 @@ const Appointment = () => {
             });
 
             await MySwal.fire({
-                title: <span className="font-headline">Request Received</span>,
+                title: <span className="font-headline">Request Received!</span>,
                 html: <p className="font-body text-secondary">Your concierge appointment for {serviceType} has been scheduled. Expect a confirmation shortly.</p>,
                 icon: 'success',
                 background: '#121212',
