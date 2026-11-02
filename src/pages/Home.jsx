@@ -63,7 +63,7 @@ const Home = () => {
               </Link>
 
               <Link to="/inventory" className="bg-[#cc0000] hover:bg-red-700 text-white px-6 md:px-14 py-3 md:py-5 rounded-full font-black text-sm md:text-xl tracking-widest flex items-center gap-2 md:gap-3 transition-all hover:scale-105 shadow-[0_10px_40px_rgba(204,0,0,0.5)]">
-                EXPLORE FLEET
+                EXPLORE FLIPS
                 <span className="material-symbols-outlined font-black text-xl md:text-2xl">arrow_forward</span>
               </Link>
 
@@ -86,10 +86,10 @@ const Home = () => {
       <section className="bg-surface py-32 fade-in">
         <div className="max-w-4xl mx-auto px-12 text-center">
           <p className="text-2xl md:text-4xl font-headline leading-relaxed text-on-surface mb-8">
-            Defining automotive excellence since 2015. We breathe life into forgotten engineering and curate the finest luxury fleet in the city.
+            Turning broken down, neglected cars into reliable daily drivers and slick dream machines. We buy honest cars, fix them right, and sell them at prices regular people can afford.
           </p>
           <Link className="inline-block font-label text-primary tracking-[0.2em] uppercase text-sm border-b border-primary/30 hover:border-primary transition-all pb-1" to="/about">
-            Learn More
+            Our Story & Process
           </Link>
         </div>
       </section>
@@ -97,35 +97,35 @@ const Home = () => {
       <section className="py-24 px-12 max-w-screen-2xl mx-auto fade-in">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
           <div className="md:col-span-2 relative group overflow-hidden bg-neutral-900 fade-in">
-            <img alt="Bespoke Interiors" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEvN_gVSS4l02dwJiFkFU9VyyWrayBIUjhuy4pwipcRy1NvPzO9Co1WNkJFd4U-g9ysXSY8lsVsCpG42D5s_2Sb87tReq8q8MwD3WC7TBnVPhxuolpEJqk8TyM40fRDOLiKN3kW1g2YNtcdeBEh00GWzAP9vRMHv9xm7PPUPQpIwK9JIcx0875XXFYHimi42WcRQPS7yZIeYv_sI_LsHPbzT-YsQaO96yjob05MtY_ZRz4BSeYKs9WEDChCkbilXvtt2rJ-x7Wwu0" />
+            <img alt="Bespoke Interiors" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div className="absolute bottom-8 left-8">
-              <h3 className="text-4xl font-headline mb-2">Bespoke Refinement</h3>
-              <p className="text-secondary text-sm tracking-widest uppercase">Interiors tailored to your soul</p>
+              <h3 className="text-4xl font-headline mb-2">Slick Muscle Flips</h3>
+              <p className="text-secondary text-sm tracking-widest uppercase">Ford Mustangs & Chevrolet Camaros made affordable</p>
             </div>
           </div>
           <div className="relative group overflow-hidden bg-neutral-900 fade-in delay-200">
-            <img alt="Engine Upgrades" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWfqPN4Cc30yzFRXzbUjBrE9QGX0Ys4j3MvmDcFZkTG6Bnq0k5e3i_XdtQDo2MHuIGQPVqBeeONev5OzagLKSBffTEge9cfZq7R1ieTwBlfWNnN6U6FNjSU94IrVfFhhJVvgj34wT_YJv5tFPWrh6KhnB6krXr58hFROOGcsgRozXd1clJezRDgqFs0u4KB3XPRrVAyTNYo7fGSrQSmvMtwapPguYDFTM3ScixxzPFJyrMK5Tt0635_vac1M3QRgpmH0NrrsaOiPo" />
+            <img alt="Engine Upgrades" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=1200&auto=format&fit=crop" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div className="absolute bottom-8 left-8">
-              <h3 className="text-3xl font-headline mb-2">Power Unbound</h3>
-              <p className="text-secondary text-sm tracking-widest uppercase">Stage 3 Tuning & Calibration</p>
+              <h3 className="text-3xl font-headline mb-2">Under £5k Daily Drivers</h3>
+              <p className="text-secondary text-sm tracking-widest uppercase">Golfs, Fiestas & Corsas with fresh MOT</p>
             </div>
           </div>
           <div className="relative group overflow-hidden bg-neutral-900 fade-in">
-            <img alt="Classic Restorations" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjRz7W9DEwb1_njtHx6_4nX2G_a9FNOJU3LKQ3SJHi1M7TXuGExdfiCpCuFk49FdpR907BgnRh5GFh2dFwKxmKw3jWj7l03SpTegLMX9uxJBeKLhrUQP56ZFBjRR29kYjaWc1HzR6BPBpfcvt9DvqC_uXzRR-CTgYkKUTShrNxmhVrB2CHOYkfV9E-ZjGucXU9tI7u93lAan3IEFjAt9SWqOvOU3To_75j81t0oVs8s9Wvot80On65J0DjWFWX5CG1zOE7nfJYz-M" />
+            <img alt="Classic Restorations" className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?q=80&w=1200&auto=format&fit=crop" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div className="absolute bottom-8 left-8">
-              <h3 className="text-3xl font-headline mb-2">The Classics</h3>
-              <p className="text-secondary text-sm tracking-widest uppercase">Preserving Automotive History</p>
+              <h3 className="text-3xl font-headline mb-2">Revived Classics</h3>
+              <p className="text-secondary text-sm tracking-widest uppercase">Barn finds brought back from the brink</p>
             </div>
           </div>
           <div className="md:col-span-2 relative group overflow-hidden bg-neutral-900 fade-in delay-200">
-            <img alt="Fleet" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk6zICDXDN6h8D2n5cOm0qiq0zGr7nxPICYx86ncaEEkJR2Q3hXbb6158LJTR0GVFJ9bHF081SfmUOrD2FdfNQp4VaOP1GuDgGzraM5nplToDsfZBqk6RRGAw0xUZcbxirrsFwZE2y179-DujnhycJyjQnSbAXLHcbXHJ53D5ru8JlIIA0LxynN6eDdAt0aIXurCGxDaX1n_3mCkFoM5Ha34Nw8FM-ktxGymOgvvJRklHMEtS4mHNIQE5gDdjyqZT09IQb77wDPF8" />
+            <img alt="Fleet" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1551830820-330a71b99659?q=80&w=1200&auto=format&fit=crop" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
             <div className="absolute bottom-8 left-8">
-              <h3 className="text-4xl font-headline mb-2">Curated Inventory</h3>
-              <p className="text-secondary text-sm tracking-widest uppercase">Hand-picked excellence for sale</p>
+              <h3 className="text-4xl font-headline mb-2">Honest Budget Cars</h3>
+              <p className="text-secondary text-sm tracking-widest uppercase">Inspected, serviced & ready to drive away</p>
             </div>
           </div>
         </div>
@@ -134,37 +134,37 @@ const Home = () => {
       <section className="py-32 bg-neutral-900/50 fade-in">
         <div className="max-w-screen-2xl mx-auto px-12">
           <div className="mb-20">
-            <span className="text-primary font-label tracking-[0.4em] uppercase text-xs mb-4 block">Precision Care</span>
-            <h2 className="text-5xl font-headline tracking-tight">Our Expertise</h2>
+            <span className="text-primary font-label tracking-[0.4em] uppercase text-xs mb-4 block">Workshop Standards</span>
+            <h2 className="text-5xl font-headline tracking-tight">How We Fix & Flip</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="group flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
-                <span className="material-symbols-outlined text-4xl text-primary" data-icon="home_repair_service">home_repair_service</span>
+                <span className="material-symbols-outlined text-4xl text-primary" data-icon="car_crash">car_crash</span>
               </div>
-              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Car Repair</h4>
-              <p className="text-secondary leading-relaxed">Full structural and mechanical restoration using OEM parts and precision tools.</p>
+              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">We Buy Broken</h4>
+              <p className="text-secondary leading-relaxed">Failed MOT, blown head gasket, slipping clutch, or non-runners. We buy what others write off.</p>
             </div>
             <div className="group flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
-                <span className="material-symbols-outlined text-4xl text-primary" data-icon="settings_input_component">settings_input_component</span>
+                <span className="material-symbols-outlined text-4xl text-primary" data-icon="build">build</span>
               </div>
-              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Engine Upgrades</h4>
-              <p className="text-secondary leading-relaxed">Performance mapping, turbo installations, and exhaust system optimization.</p>
+              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Full Mechanical Fix</h4>
+              <p className="text-secondary leading-relaxed">Timing belts, suspension, water pumps, clutches, and electrical troubleshooting in our workshop.</p>
             </div>
             <div className="group flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
-                <span className="material-symbols-outlined text-4xl text-primary" data-icon="format_paint">format_paint</span>
+                <span className="material-symbols-outlined text-4xl text-primary" data-icon="auto_fix_high">auto_fix_high</span>
               </div>
-              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Paint Jobs</h4>
-              <p className="text-secondary leading-relaxed">Custom automotive finishes including matte, pearlescent, and protective wraps.</p>
+              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Detail & Freshen</h4>
+              <p className="text-secondary leading-relaxed">Paint correction, dent removal, interior wet vac, and fresh alloy refurbishments.</p>
             </div>
             <div className="group flex flex-col items-center md:items-start text-center md:text-left">
               <div className="mb-8 w-16 h-16 flex items-center justify-center rounded-full bg-neutral-800 border border-outline-variant/30 group-hover:border-primary transition-all">
-                <span className="material-symbols-outlined text-4xl text-primary" data-icon="fact_check">fact_check</span>
+                <span className="material-symbols-outlined text-4xl text-primary" data-icon="verified">verified</span>
               </div>
-              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Inspection</h4>
-              <p className="text-secondary leading-relaxed">Rigorous 250-point diagnostic check for pre-purchase or safety compliance.</p>
+              <h4 className="text-xl font-headline mb-4 group-hover:text-primary transition-colors">Clean MOT & Sold</h4>
+              <p className="text-secondary leading-relaxed">Every car leaves with a clean 12-month MOT, full diagnostics pass, and honest pricing.</p>
             </div>
           </div>
         </div>
@@ -174,30 +174,30 @@ const Home = () => {
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 md:grid-cols-3 gap-24">
           <div className="flex flex-col items-center text-center">
             <span className="text-7xl font-headline font-extrabold text-on-surface mb-2">500+</span>
-            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">Cars Repaired</span>
+            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">Cars Saved & Flipped</span>
           </div>
           <div className="flex flex-col items-center text-center">
             <span className="text-7xl font-headline font-extrabold text-on-surface mb-2">10</span>
-            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">Years Experience</span>
+            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">Years Workshop Experience</span>
           </div>
           <div className="flex flex-col items-center text-center">
             <span className="text-7xl font-headline font-extrabold text-on-surface mb-2">100%</span>
-            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">Satisfaction</span>
+            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">Honest Value</span>
           </div>
         </div>
       </section>
 
-      {/* Available Fleet Showcase */}
+      {/* Freshly Restored Flips Showcase */}
       <section className="py-32 overflow-hidden fade-in">
         <div className="max-w-screen-2xl mx-auto px-12 flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 gap-4">
           <div>
             <span className="text-primary font-label tracking-[0.35em] uppercase text-xs font-bold block mb-2">
-              Featured British Showroom
+              Slick Muscle & Affordable Flips
             </span>
-            <h2 className="text-4xl sm:text-5xl font-headline">Available Fleet</h2>
+            <h2 className="text-4xl sm:text-5xl font-headline">Recent Flips Ready to Drive</h2>
           </div>
           <Link to="/inventory" className="font-label text-primary tracking-[0.3em] uppercase text-sm flex items-center gap-2 hover:translate-x-2 transition-transform group">
-            View All ({INVENTORY_DATA.length}) <span className="material-symbols-outlined text-sm transition-transform" data-icon="arrow_forward">arrow_forward</span>
+            View All ({INVENTORY_DATA.length} Flips) <span className="material-symbols-outlined text-sm transition-transform" data-icon="arrow_forward">arrow_forward</span>
           </Link>
         </div>
 
@@ -205,7 +205,7 @@ const Home = () => {
           className="flex overflow-x-auto hide-scrollbar gap-8 px-12 pb-12 snap-x snap-mandatory"
           onWheel={(e) => { e.currentTarget.scrollLeft += e.deltaY; }}
         >
-          {INVENTORY_DATA.slice(0, 8).map((car, index) => (
+          {INVENTORY_DATA.slice(0, 10).map((car, index) => (
             <Link
               key={car.id}
               to={`/offer?car=${car.id}`}
@@ -251,7 +251,7 @@ const Home = () => {
                   <span>•</span>
                   <span>{car.miles.toLocaleString('en-GB')} Miles</span>
                   <span>•</span>
-                  <span className="text-primary font-bold">Inquire</span>
+                  <span className="text-primary font-bold">View Flip</span>
                 </div>
               </div>
             </Link>
@@ -263,13 +263,13 @@ const Home = () => {
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-6xl md:text-8xl font-headline mb-8 leading-tight">We buy old and broken cars.</h2>
-            <p className="text-secondary text-xl max-w-lg mb-12">No matter the condition. We see the potential. Get a competitive UK valuation within 24 hours and direct bank payment in Pounds Sterling.</p>
+            <p className="text-secondary text-xl max-w-lg mb-12">MOT failure? Non-runner? Blown head gasket or damaged bodywork? We see the potential. Get a fair, direct cash offer in Pounds Sterling within 24 hours.</p>
             <Link to="/contact" className="ignite-button px-12 py-5 text-white font-label text-sm tracking-[0.3em] uppercase font-black inline-block">
-              Schedule Appointment
+              Sell Us Your Broken Car
             </Link>
           </div>
           <div className="relative h-[600px] overflow-hidden">
-            <img alt="Classic Restoration" className="w-full h-full object-cover grayscale opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ujkKRf4YJqQF502fG0vzsLodJmArU7K7Oh7TJ9be7v0IV6G_Ef5A3EGYR6fLO7RFqL9rp6YGERm6O-zAd8z2WJbrXKqez-W9yg7xHtmBPkiNttdlGKVI6VyKV1jccy8TDvDw1vv-hpJBH2ILP5a2QcTIExuok2b-7b7GTT-O74zgR26PaIoaGJVVH9dKsEjMd-sSjMBRQUb91hbP9m3Ou5mE1YanqZ44XA6CcNItANAdr-KFcoPJjqBzd17nK0sF8igeeacIJHI" />
+            <img alt="Classic Restoration" className="w-full h-full object-cover grayscale opacity-40" src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?q=80&w=1200&auto=format&fit=crop" />
             <div className="absolute inset-0 border border-primary/20 m-6"></div>
           </div>
         </div>
@@ -278,36 +278,36 @@ const Home = () => {
       <section className="py-32 fade-in">
         <div className="max-w-screen-2xl mx-auto px-12">
           <div className="flex justify-between items-end mb-16">
-            <h2 className="text-5xl font-headline">Editorial</h2>
-            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">The Ledger</span>
+            <h2 className="text-5xl font-headline">Flip Stories</h2>
+            <span className="text-primary font-label tracking-[0.3em] uppercase text-xs">The Workshop Blog</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <article className="group cursor-pointer">
               <div className="aspect-[4/5] overflow-hidden mb-8 relative">
-                <img alt="Vintage restoration" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyni4Cz1O2fjyPv2-JY-YfzlfBGIODPk74-JCg_TJZAIFJj1VdY1iPsU9xe_FazVLvZgBq4U2McVSTJEwB7JdygULoXYa9f9I5AcGW-jb5rJ0HMs37X0mMNE2shPW6-sK-0Iz3RmZP-jEpUspBcgZ-w4cKFZ5XNRykSbHD5I_D7riLSlqG2l5bHb-P8D1mrLLkPxl1k6qFh-ily7x2Jq2VydZoyGr1cQd-1IQtC4-j7QE_WRMwBjttIZZrOzD8ynNqMOa-Hz3cfLw" />
+                <img alt="Mustang Restoration" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?q=80&w=1200&auto=format&fit=crop" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
               </div>
-              <h3 className="text-2xl font-headline mb-4">The Art of the Barn Find</h3>
-              <p className="text-secondary leading-relaxed mb-6">Uncovering hidden gems and the intricate process of bringing them back to life.</p>
-              <span className="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Entry</span>
+              <h3 className="text-2xl font-headline mb-4">Reviving a Barn Find 1968 Mustang</h3>
+              <p className="text-secondary leading-relaxed mb-6">6 years sitting in a damp barn. How we rebuilt the carburettor, brakes, and brought the V8 roar back.</p>
+              <span className="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Build Log</span>
             </article>
             <article className="group cursor-pointer">
               <div className="aspect-[4/5] overflow-hidden mb-8 relative">
-                <img alt="Modern tech" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_VEwrTsBEsXI33xgevO79YmVurayK7SEKQf6PI0NnkHC3HWnsLdx34XmXu6-23CM4IQs_jXhSf0jjaYn2IH5MOuK3W6yp0FR0aQFBnnhzBql0s7hfdYXtHcuDpTe7QEgKrL1jlhiIy3feS9Gio7X9cZvACEx94yqnFxUUCwUBzOxYMzJVLMxLDvK7sTKSzuMRLtSDE_7ho9iDaAAS-yiVddujKMKzXtSDt3PCp06AnsBfjcOChatAfow6y8W4a3aYPAE2I8JYpWc" />
+                <img alt="Modern tech" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://images.unsplash.com/photo-1551830820-330a71b99659?q=80&w=1200&auto=format&fit=crop" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
               </div>
-              <h3 className="text-2xl font-headline mb-4">Hybrid vs. Pure ICE</h3>
-              <p className="text-secondary leading-relaxed mb-6">Analyzing the future of luxury performance in the age of electrification.</p>
-              <span className="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Entry</span>
+              <h3 className="text-2xl font-headline mb-4">Fixing the Infamous EcoBoost Wet Belt</h3>
+              <p className="text-secondary leading-relaxed mb-6">How we saved a low-mileage Fiesta from the scrap heap with a fresh timing belt and oil pickup service.</p>
+              <span className="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Build Log</span>
             </article>
             <article className="group cursor-pointer">
               <div className="aspect-[4/5] overflow-hidden mb-8 relative">
-                <img alt="Maintenance" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3BxX3dllzBrs87LJVs9VZjbvIx6kIpcz8wnPG5UqieSqY6P9OuhF-1AOdU6VO9i_pyRZJPpjx3QXUSjt-wRjL9UClOEKLO3xFoH9VKrMky9hdIwFemqDD8v1lriYPHLB6KpaIfjCkNTiU4k8pRBZ4poztTJzRZbeP0Mmggw4VW4qofAVCTO9kcpfcN3OfuZApUXIE8rShQPuZEpNeSMTBIdTg08irw0Y8zTv0UPDaEKJ4-DL0DRGrEw2Me-bKZpM4pAykHNJK-fA" />
+                <img alt="Maintenance" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=1200&auto=format&fit=crop" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
               </div>
-              <h3 className="text-2xl font-headline mb-4">Maintenance as Ritual</h3>
-              <p className="text-secondary leading-relaxed mb-6">Why periodic servicing is more than just oil changes—it's legacy preservation.</p>
-              <span className="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Entry</span>
+              <h3 className="text-2xl font-headline mb-4">The £4k Golf That Needed a Clutch</h3>
+              <p className="text-secondary leading-relaxed mb-6">Why buying with a slipping clutch was the smartest move, turning a £1k repair into a 70 MPG commuter bargain.</p>
+              <span className="font-label text-xs tracking-widest uppercase border-b border-outline-variant group-hover:border-primary transition-colors pb-1">Read Build Log</span>
             </article>
           </div>
         </div>
@@ -315,12 +315,12 @@ const Home = () => {
 
       <section className="py-40 bg-neutral-900 relative overflow-hidden fade-in">
         <div className="absolute inset-0 opacity-10">
-          <img alt="Detail" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Yx17fvLT5nTRU5IbJD9Zf7KHrcQYKeezb_frsVoKguBkR0cu8sAvkC_zTQyP53yGxYhT4vUwIxjgxEwkBibrLsDzZfQAX4sXJOE31MY0AOpHTJvF6DLJt0aO1NPjLtvwfU5Q37JW-GBGnA-sbhjOzm6Z5uk2Pn8H76CPIQT1YS7KeCgbtxZ_-GyMl5EWje4lG-OTUeL47f8JfTLaObHxtxuqaktMSdntkfzPMuMoHsPFowvWaDH1rTWLsc5Zo4cTGUBsiS8hw18" />
+          <img alt="Detail" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-12 text-center">
-          <h2 className="text-4xl md:text-6xl font-headline mb-12 leading-tight">Looking for an exquisite supercar or classic?</h2>
+          <h2 className="text-4xl md:text-6xl font-headline mb-12 leading-tight">Looking for an honest, affordable car?</h2>
           <Link to="/inventory" className="ignite-button px-12 py-5 text-white font-label text-sm tracking-[0.3em] uppercase font-black shadow-2xl inline-block">
-            View Complete UK Catalog
+            View All Flips (From £2,450)
           </Link>
         </div>
       </section>
