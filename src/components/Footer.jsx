@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col space-y-4">
           <h4 className="text-neutral-100 font-serif tracking-[0.2em] uppercase text-xs mb-4">Connect</h4>
-          <p className="text-neutral-500 font-sans text-sm tracking-wider mb-2">1221 Apex Drive, Industrial District</p>
+          <p className="text-neutral-500 font-sans text-sm tracking-wider mb-2">24 Park Lane, Mayfair, London, W1K 1BE, UK</p>
           <a className="text-neutral-500 hover:text-red-500 transition-colors font-sans text-sm tracking-wider" href="mailto:contact@mariomotors.com">contact@mariomotors.com</a>
           <div className="flex space-x-6 mt-4">
             <span className="material-symbols-outlined text-neutral-500 cursor-pointer hover:text-primary transition-colors" data-icon="public">public</span>

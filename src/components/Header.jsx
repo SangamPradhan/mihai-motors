@@ -56,9 +56,9 @@ const Header = () => {
                             <span className="hidden md:inline">contact@mihaimotors.com</span>
                         </a>
                         <a className="flex items-center gap-2 font-bold text-[10px] text-white/60 hover:text-primary uppercase tracking-widest transition-colors"
-                            href="tel:+1234567890">
+                            href="tel:+442079460123">
                             <span className="text-sm material-symbols-outlined">phone</span>
-                            <span className="hidden md:inline">+1 (234) 567-890</span>
+                            <span className="hidden md:inline">+44 (0) 20 7946 0123</span>
                         </a>
                     </div>
                     <div className="flex items-center space-x-4 text-white/40">
