@@ -9,7 +9,6 @@ import { INVENTORY_DATA } from '../data/inventory';
 const MySwal = withReactContent(Swal);
 
 // --- EMAILJS CONFIGURATION ---
-// Replace these with your actual IDs from the EmailJS Dashboard: https://dashboard.emailjs.com/
 const EMAILJS_SERVICE_ID = 'service_coz1zts';
 const EMAILJS_TEMPLATE_ID = 'template_axacugr';
 const EMAILJS_PUBLIC_KEY = 'IlDSeLG8CdU6rZ3Kk';
@@ -34,8 +33,7 @@ const Offer = () => {
 
   useEffect(() => {
     if (!car && carId) {
-      // If car ID is invalid, redirect to inventory
-      // navigate('/inventory');
+      // If car ID is invalid
     }
   }, [car, carId, navigate]);
 
@@ -65,8 +63,8 @@ const Offer = () => {
       subject: `Purchase Offer — ${car.year} ${car.make} ${car.model}`,
       message: `Phone: ${formData.phone}
                 Vehicle: ${car.year} ${car.make} ${car.model}
-                Listed Price: $${car.price.toLocaleString()}
-                Offer Amount: $${formData.offerAmount}
+                Listed Price: £${car.price.toLocaleString('en-GB')}
+                Offer Amount: £${formData.offerAmount}
                 Message: ${formData.message || 'None'}`
     };
 
@@ -76,7 +74,7 @@ const Offer = () => {
 
       await MySwal.fire({
         title: <span className="font-headline">Offer Submitted!</span>,
-        html: <p className="font-body text-secondary">Your purchase offer for the {car.model} has been sent. Our team will contact you shortly.</p>,
+        html: <p className="font-body text-secondary">Your purchase offer for the {car.model} has been sent. Our VIP acquisitions team will contact you shortly.</p>,
         icon: 'success',
         background: '#121212',
         color: '#ffffff',
@@ -117,11 +115,11 @@ const Offer = () => {
 
           {/* Left Column: Scrollable Vehicle Details */}
           <div className="w-full lg:w-[60%] space-y-12">
-            <div className="relative aspect-[16/9] overflow-hidden rounded-sm group">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-sm group bg-black">
               <img
                 src={car.image}
                 alt={car.model}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
               <div className="absolute top-6 left-6 flex flex-col gap-3">
                 <span className="bg-primary text-white text-[10px] font-bold tracking-[0.2em] px-4 py-1.5 uppercase">
@@ -139,26 +137,27 @@ const Offer = () => {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/20 pb-8">
                 <div>
                   <span className="text-primary text-sm font-bold tracking-[0.4em] uppercase mb-2 block">{car.year} {car.make}</span>
-                  <h1 className="font-headline text-5xl md:text-6xl text-on-surface tracking-tight">{car.model}</h1>
+                  <h1 className="font-headline text-4xl md:text-6xl text-on-surface tracking-tight">{car.model}</h1>
                 </div>
-                <div className="text-right">
-                  <span className="text-secondary text-xs uppercase tracking-widest block mb-1">Listed Price</span>
-                  <span className="font-headline text-4xl text-on-surface">${car.price.toLocaleString()}</span>
+                <div className="text-left md:text-right">
+                  <span className="text-secondary text-xs uppercase tracking-widest block mb-1">Listed UK Price</span>
+                  <span className="font-headline text-4xl text-primary font-bold">£{car.price.toLocaleString('en-GB')}</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-b border-outline-variant/20">
+              {/* Core Specs Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-b border-outline-variant/20">
                 <div className="space-y-1">
                   <span className="text-secondary text-[10px] uppercase font-bold tracking-widest">Power</span>
                   <p className="text-on-surface font-headline text-2xl">{car.hp} HP</p>
                 </div>
                 <div className="space-y-1">
                   <span className="text-secondary text-[10px] uppercase font-bold tracking-widest">Mileage</span>
-                  <p className="text-on-surface font-headline text-2xl">{car.miles.toLocaleString()} MI</p>
+                  <p className="text-on-surface font-headline text-2xl">{car.miles.toLocaleString('en-GB')} MILES</p>
                 </div>
                 <div className="space-y-1">
                   <span className="text-secondary text-[10px] uppercase font-bold tracking-widest">Category</span>
-                  <p className="text-on-surface font-headline text-2xl">{car.category}</p>
+                  <p className="text-on-surface font-headline text-xl truncate">{car.category}</p>
                 </div>
                 <div className="space-y-1">
                   <span className="text-secondary text-[10px] uppercase font-bold tracking-widest">Year</span>
@@ -166,31 +165,73 @@ const Offer = () => {
                 </div>
               </div>
 
+              {/* Extended Engineering Details */}
+              {(car.engine || car.transmission || car.acceleration || car.topSpeed || car.exteriorColor) && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6 border-b border-outline-variant/20 text-xs">
+                  {car.engine && (
+                    <div className="bg-surface-container-low p-4 border border-outline-variant/10">
+                      <span className="text-secondary text-[10px] uppercase font-bold tracking-widest block mb-1">Engine</span>
+                      <span className="text-on-surface font-medium">{car.engine}</span>
+                    </div>
+                  )}
+                  {car.transmission && (
+                    <div className="bg-surface-container-low p-4 border border-outline-variant/10">
+                      <span className="text-secondary text-[10px] uppercase font-bold tracking-widest block mb-1">Transmission & Drive</span>
+                      <span className="text-on-surface font-medium">{car.transmission} ({car.drivetrain})</span>
+                    </div>
+                  )}
+                  {car.acceleration && (
+                    <div className="bg-surface-container-low p-4 border border-outline-variant/10">
+                      <span className="text-secondary text-[10px] uppercase font-bold tracking-widest block mb-1">Acceleration</span>
+                      <span className="text-on-surface font-medium">{car.acceleration}</span>
+                    </div>
+                  )}
+                  {car.topSpeed && (
+                    <div className="bg-surface-container-low p-4 border border-outline-variant/10">
+                      <span className="text-secondary text-[10px] uppercase font-bold tracking-widest block mb-1">Top Speed</span>
+                      <span className="text-on-surface font-medium">{car.topSpeed}</span>
+                    </div>
+                  )}
+                  {car.exteriorColor && (
+                    <div className="bg-surface-container-low p-4 border border-outline-variant/10">
+                      <span className="text-secondary text-[10px] uppercase font-bold tracking-widest block mb-1">Exterior Finish</span>
+                      <span className="text-on-surface font-medium">{car.exteriorColor}</span>
+                    </div>
+                  )}
+                  {car.interiorColor && (
+                    <div className="bg-surface-container-low p-4 border border-outline-variant/10">
+                      <span className="text-secondary text-[10px] uppercase font-bold tracking-widest block mb-1">Interior Trim</span>
+                      <span className="text-on-surface font-medium">{car.interiorColor}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="space-y-6 pt-4">
                 <h3 className="font-headline text-2xl text-on-surface">Vehicle Description</h3>
-                <p className="text-secondary font-body text-lg leading-relaxed antialiased">
+                <p className="text-secondary font-body text-base leading-relaxed antialiased">
                   {car.description || "Experience the pinnacle of automotive engineering with this exceptional vehicle. Every curve and component has been designed to deliver an unforgettable driving experience, blending heritage performance with modern reliability. This vehicle has undergone a rigorous inspection by our certified technicians to ensure it meets our highest standards of excellence."}
                 </p>
 
                 <div className="space-y-4 pt-8">
-                  <h3 className="font-headline text-2xl text-on-surface">Experience the Legacy</h3>
+                  <h3 className="font-headline text-2xl text-on-surface">The Mario Motors Guarantee</h3>
                   <p className="text-secondary font-body">Our vehicles represent more than just transportation; they are moving art. At Mario Motors, we specialize in curating the finest automotive machines for the discerning collector and enthusiast.</p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs tracking-widest uppercase font-bold text-primary">
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      Comprehensive history report
+                      Full HPI & Provenance Certified
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      Master technician multi-point check
+                      150-Point Master Diagnostic Check
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      Nationwide enclosed transport
+                      Enclosed UK & Global Transport
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      Bespoke financing available
+                      Bespoke UK Finance & Part-Exchange
                     </li>
                   </ul>
                 </div>
@@ -201,7 +242,7 @@ const Offer = () => {
           <div className="w-full lg:w-[40%] xl:w-[35%]">
             <div className="sticky top-32 bg-surface-container p-8 md:p-12 border border-outline-variant/15 shadow-2xl">
               <h2 className="font-headline text-3xl text-on-surface mb-2">Secure Purchase Offer</h2>
-              <p className="text-secondary text-sm mb-10 leading-relaxed font-body">Submit your formal interest or bid. Our VIP acquisitions team will contact you within 12 hours.</p>
+              <p className="text-secondary text-sm mb-10 leading-relaxed font-body">Submit your formal interest or bid in Pounds Sterling (£). Our VIP acquisitions team will contact you within 12 hours.</p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
@@ -213,7 +254,7 @@ const Offer = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-surface border border-outline-variant/30 p-4 text-white focus:outline-none focus:border-primary transition-colors text-sm"
-                    placeholder="Enter your name"
+                    placeholder="e.g. Lord James Montgomery"
                   />
                 </div>
 
@@ -227,7 +268,7 @@ const Offer = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full bg-surface border border-outline-variant/30 p-4 text-white focus:outline-none focus:border-primary transition-colors text-sm"
-                      placeholder="email@example.com"
+                      placeholder="client@luxury.co.uk"
                     />
                   </div>
                   <div className="space-y-2">
@@ -239,26 +280,28 @@ const Offer = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full bg-surface border border-outline-variant/30 p-4 text-white focus:outline-none focus:border-primary transition-colors text-sm"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+44 7911 123456"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] uppercase font-bold tracking-[0.25em] text-primary">Your Offer Amount (USD)</label>
+                  <label className="text-[10px] uppercase font-bold tracking-[0.25em] text-primary">Your Offer Amount (GBP £)</label>
                   <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-secondary">$</span>
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-primary font-bold text-base">£</span>
                     <input
                       required
                       type="number"
                       name="offerAmount"
                       value={formData.offerAmount}
                       onChange={handleChange}
-                      className="w-full bg-surface border border-outline-variant/30 p-4 pl-8 text-white focus:outline-none focus:border-primary transition-colors text-sm font-bold"
-                      placeholder="0.00"
+                      className="w-full bg-surface border border-outline-variant/30 p-4 pl-9 text-white focus:outline-none focus:border-primary transition-colors text-sm font-bold"
+                      placeholder={`${car.price}`}
                     />
                   </div>
-                  <p className="text-[9px] text-secondary mt-1 italic italic">Current list price: ${car.price.toLocaleString()}</p>
+                  <p className="text-[10px] text-secondary mt-1 italic">
+                    Current list price: £{car.price.toLocaleString('en-GB')}
+                  </p>
                 </div>
 
                 <div className="space-y-2">
@@ -269,7 +312,7 @@ const Offer = () => {
                     onChange={handleChange}
                     rows="4"
                     className="w-full bg-surface border border-outline-variant/30 p-4 text-white focus:outline-none focus:border-primary transition-colors text-sm resize-none"
-                    placeholder="Inquire about delivery, financing, or part-exchange options..."
+                    placeholder="Inquire about UK enclosed delivery, bespoke financing, or part-exchange options..."
                   ></textarea>
                 </div>
 
