@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import viewCar from "../assets/card.png";
+import { INVENTORY_DATA } from '../data/inventory';
 
 const Home = () => {
   useEffect(() => {
@@ -20,45 +21,11 @@ const Home = () => {
 
   return (
     <>
-      {/* <section className="relative h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
-        <div className="absolute top-28 sm:top-32 left-0 right-0 flex justify-center z-30 fade-in" style={{ transitionDelay: '2s' }}>
-          <span className="text-secondary font-label tracking-[0.4em] uppercase text-xs sm:text-sm md:text-base text-center px-4">
-            Every car deserves a second life
-          </span>
-        </div>
-        <div className="w-full max-w-[1600px] px-6 md:px-16 flex flex-col md:flex-row items-center justify-between relative h-full">
-          <div
-            className="flex-1 text-center md:text-left z-0 fade-in-behind tracking-tighter cursor-default hero-text-wrapper"
-            style={{ transitionDelay: '2s' }}
-          >
-            <h1 className="font-headline font-bold text-neutral-300 opacity-90 drop-shadow-2xl hero-text">
-              We <span className="text-primary">Fix.</span>
-            </h1>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 fade-in" style={{ transitionDelay: '2s' }}>
-            <div className="relative w-full max-w-5xl px-4 flex justify-center items-center">
-              <img alt="Red Supercar" className="w-full h-auto object-contain drop-shadow-[0_45px_45px_rgba(0,0,0,0.8)] scale-[0.80] sm:scale-90 md:scale-95 lg:scale-100" src={viewCar} />
-            </div>
-          </div>
-          <div className="flex-1 text-center md:text-right z-0 fade-in-behind tracking-tighter cursor-default hero-text-wrapper" style={{ transitionDelay: '2s' }}>
-            <h1 className="font-headline font-bold text-neutral-300 opacity-90 drop-shadow-2xl hero-text">
-              We <span className="text-primary">Flip.</span>
-            </h1>
-          </div>
-        </div>
-        <div className="absolute bottom-10 sm:bottom-16 left-0 right-0 flex justify-center z-30 fade-in" style={{ transitionDelay: '2.2s' }}>
-          <Link to="/inventory" className="ignite-button px-8 sm:px-12 py-4 sm:py-5 text-white font-label text-xs sm:text-sm tracking-[0.3em] uppercase font-black shadow-2xl inline-block">
-            Explore Our Cars
-          </Link>
-        </div>
-      </section> */}
-
-      {/* Modern Secondary Hero Section */}
+      {/* Modern Hero Section */}
       <section className="relative min-h-screen flex flex-col pt-32 md:pt-40 pb-8 bg-gradient-to-b from-[#1a1a1a] via-[#0a0a0a] to-black overflow-hidden">
         <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 h-full flex flex-col items-center">
 
           {/* Text Layer: We Fix We Flip & Tagline */}
-          {/* Added -mb-20 md:-mb-48 to pull the car up into this section */}
           <div className="w-full flex flex-col md:flex-row items-center justify-between z-0 pointer-events-none mt-10 -mb-20 md:-mb-48 lg:-mb-64">
 
             {/* Left: We Fix We Flip */}
@@ -71,7 +38,7 @@ const Home = () => {
               </h1>
             </div>
 
-            {/* Right: Tagline in Circular Border (HIDDEN ON MOBILE, MOVED BELOW) */}
+            {/* Right: Tagline */}
             <div className="hidden md:block border-2 border-amber-500/40 rounded-[40px] px-8 py-5 bg-black/40 backdrop-blur-sm pointer-events-auto">
               <p className="font-bold text-amber-500 text-center font-sans text-lg lg:text-xl tracking-wider leading-tight drop-shadow-lg max-w-[200px]">
                 Every car deserves<br />a second life!
@@ -80,7 +47,6 @@ const Home = () => {
           </div>
 
           {/* Car Image: Centered and Scaled */}
-          {/* Kept sizes same as requested, but ensuring it sits behind text with z-0 */}
           <div className="relative z-0 flex justify-center w-full max-w-6xl mx-auto items-center">
             <img
               alt="Supercar"
@@ -89,7 +55,7 @@ const Home = () => {
             />
           </div>
 
-          {/* Action Buttons: Pulled UP onto the bumper */}
+          {/* Action Buttons */}
           <div className="relative z-30 flex flex-col items-center gap-6 -mt-16 md:-mt-28 mb-10">
             <div className="flex justify-center items-center gap-3 md:gap-8">
               <Link to="/contact" className="flex items-center justify-center w-11 h-11 md:w-16 md:h-16 rounded-full border-2 border-neutral-500 hover:border-white bg-black/60 backdrop-blur-md transition-all hover:scale-110 group shadow-2xl">
@@ -106,7 +72,7 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Mobile Quote Section (Visible only on mobile) */}
+            {/* Mobile Quote Section */}
             <div className="md:hidden border-2 border-amber-500/40 rounded-[30px] px-6 py-3 bg-black/40 backdrop-blur-sm">
               <p className="font-bold text-amber-500 text-center font-sans text-sm tracking-widest leading-tight drop-shadow-lg">
                 Every car deserves a second life!
@@ -116,7 +82,6 @@ const Home = () => {
 
         </div>
       </section>
-
 
       <section className="bg-surface py-32 fade-in">
         <div className="max-w-4xl mx-auto px-12 text-center">
@@ -222,65 +187,75 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Available Fleet Showcase */}
       <section className="py-32 overflow-hidden fade-in">
-        <div className="max-w-screen-2xl mx-auto px-12 flex justify-between items-end mb-16">
+        <div className="max-w-screen-2xl mx-auto px-12 flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 gap-4">
           <div>
-            <h2 className="text-5xl font-headline">Available Fleet</h2>
+            <span className="text-primary font-label tracking-[0.35em] uppercase text-xs font-bold block mb-2">
+              Featured British Showroom
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-headline">Available Fleet</h2>
           </div>
           <Link to="/inventory" className="font-label text-primary tracking-[0.3em] uppercase text-sm flex items-center gap-2 hover:translate-x-2 transition-transform group">
-            View All <span className="material-symbols-outlined text-sm transition-transform" data-icon="arrow_forward">arrow_forward</span>
+            View All ({INVENTORY_DATA.length}) <span className="material-symbols-outlined text-sm transition-transform" data-icon="arrow_forward">arrow_forward</span>
           </Link>
         </div>
-        <div className="flex overflow-x-auto hide-scrollbar gap-8 px-12 pb-12 snap-x snap-mandatory" onWheel={(e) => { e.currentTarget.scrollLeft += e.deltaY; }}>
-          <div className="min-w-[400px] bg-neutral-900 group snap-center border border-neutral-800 hover:border-primary/50 transition-colors fade-in delay-200">
-            <div className="h-64 overflow-hidden relative">
-              <img alt="Porsche 911" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvCjJq3HMED71-8-XQb5f1CffckU2kYjMVtydOgtggU8z1FnwAazQzgaW7f5o-GKiCT_8HdHn0wHjoMxU9zRI6qn6nbR5UHLxm43KTHLHXriWca6OOw0CWwRbAkT5wgHDRobZkknu1Ml58rsGveQMbFzJzws18Wz7wF1VOCIlGFrQzwYYuCCCsbJZp6kPoI0z2u0jJHdVQXOBS1ZUTf-lErh69RiZu49claXuURivphG0Hf_z_uvrlZpTED_dxOZZ9LuBtSX2ELY0" />
-              <div className="absolute top-4 right-4 bg-primary px-3 py-1 text-[10px] tracking-widest uppercase text-white font-black">Available</div>
-            </div>
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-headline">Porsche 911 GT3</h3>
-                <span className="text-xl font-headline text-primary">$185,000</span>
+
+        <div 
+          className="flex overflow-x-auto hide-scrollbar gap-8 px-12 pb-12 snap-x snap-mandatory"
+          onWheel={(e) => { e.currentTarget.scrollLeft += e.deltaY; }}
+        >
+          {INVENTORY_DATA.slice(0, 8).map((car, index) => (
+            <Link
+              key={car.id}
+              to={`/offer?car=${car.id}`}
+              className={`min-w-[360px] md:min-w-[420px] bg-neutral-900 group snap-center border border-neutral-800 hover:border-primary/50 transition-all flex flex-col justify-between block fade-in ${
+                index % 2 === 1 ? 'delay-200' : ''
+              }`}
+            >
+              <div className="h-64 overflow-hidden relative bg-black">
+                <img 
+                  alt={`${car.make} ${car.model}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  src={car.image} 
+                />
+                <div className="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[9px] tracking-widest uppercase text-white font-bold border border-white/10">
+                  {car.category}
+                </div>
+                <div className="absolute top-4 right-4 bg-primary px-3 py-1 text-[10px] tracking-widest uppercase text-white font-black shadow-md">
+                  {car.tag || car.condition}
+                </div>
               </div>
-              <div className="flex gap-6 text-secondary text-xs tracking-widest uppercase">
-                <span>2023</span>
-                <span>•</span>
-                <span>1,200 Miles</span>
+
+              <div className="p-8">
+                <div className="flex justify-between items-start mb-4 gap-4">
+                  <div>
+                    <span className="text-[10px] uppercase tracking-widest text-primary font-bold block mb-1">
+                      {car.year} {car.make}
+                    </span>
+                    <h3 className="text-2xl font-headline group-hover:text-primary transition-colors text-white line-clamp-1">
+                      {car.model}
+                    </h3>
+                  </div>
+                  <div className="text-right flex-shrink-0">
+                    <span className="text-[9px] uppercase tracking-widest text-secondary block mb-0.5">Price</span>
+                    <span className="text-2xl font-headline text-primary font-bold">
+                      £{car.price.toLocaleString('en-GB')}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 text-secondary text-xs tracking-widest uppercase pt-4 border-t border-neutral-800/80">
+                  <span>{car.hp} HP</span>
+                  <span>•</span>
+                  <span>{car.miles.toLocaleString('en-GB')} Miles</span>
+                  <span>•</span>
+                  <span className="text-primary font-bold">Inquire</span>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="min-w-[400px] bg-neutral-900 group snap-center border border-neutral-800 hover:border-primary/50 transition-colors">
-            <div className="h-64 overflow-hidden relative">
-              <img alt="BMW M4" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Ccrnjh7zrYTaGuoeGg_qlZsVs9WMPFBIHhC4lYBTusYqVVWzgRzFx9D2hFar2qyKv_3QhIauaKGdGup9stDN2bMKnEN7NozrUf5zexhX5PAWKHX-Wf-RyRDlhKYypPtflQXeKk_aFzAu8RobIteq1ogWrEJ4zYKvYsWV_JlxpZNr44jJpt5BlVfFtGN8uqy4GPVzc4LojhahUySqwaDGQQjnilW1brhW8qpIrui4sdx3FwTeLeGRvRIU1vV7Z_3aaCkL1Y4EC00" />
-            </div>
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-headline">BMW M4 Competition</h3>
-                <span className="text-xl font-headline text-primary">$92,500</span>
-              </div>
-              <div className="flex gap-6 text-secondary text-xs tracking-widest uppercase">
-                <span>2022</span>
-                <span>•</span>
-                <span>8,500 Miles</span>
-              </div>
-            </div>
-          </div>
-          <div className="min-w-[400px] bg-neutral-900 group snap-center border border-neutral-800 hover:border-primary/50 transition-colors">
-            <div className="h-64 overflow-hidden relative">
-              <img alt="Range Rover" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_WIxVKw8grPGlzmb9_4uxLxLr3vr2OxKRPCEnSc5_l5HDBXNaJU0mzhQKstyoJWJe_6uahgTmOPcWs2yOVohsLhHwM-5lT7IpeLuB9o7OUaiLB0JC1B3LujMMts6a8eK3jA2UxWOBLyFdnVzdC-t0AoQ6aDBrYzBXDYC8DrAv5-Ytgm1IJXANTL0GqrZyYVVZbcA_kW07CdCOli-zspgQlQPtHmqiqpkTDRH7SlbO-X4oRXBE422O2sEBXytd7P9OEUz3lWV_ko" />
-            </div>
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-headline">Range Rover Sport SVR</h3>
-                <span className="text-xl font-headline text-primary">$115,000</span>
-              </div>
-              <div className="flex gap-6 text-secondary text-xs tracking-widest uppercase">
-                <span>2021</span>
-                <span>•</span>
-                <span>12,000 Miles</span>
-              </div>
-            </div>
-          </div>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -288,7 +263,7 @@ const Home = () => {
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-6xl md:text-8xl font-headline mb-8 leading-tight">We buy old and broken cars.</h2>
-            <p className="text-secondary text-xl max-w-lg mb-12">No matter the condition. We see the potential. Get a competitive quote within 24 hours and direct cash payment.</p>
+            <p className="text-secondary text-xl max-w-lg mb-12">No matter the condition. We see the potential. Get a competitive UK valuation within 24 hours and direct bank payment in Pounds Sterling.</p>
             <Link to="/contact" className="ignite-button px-12 py-5 text-white font-label text-sm tracking-[0.3em] uppercase font-black inline-block">
               Schedule Appointment
             </Link>
@@ -343,9 +318,9 @@ const Home = () => {
           <img alt="Detail" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Yx17fvLT5nTRU5IbJD9Zf7KHrcQYKeezb_frsVoKguBkR0cu8sAvkC_zTQyP53yGxYhT4vUwIxjgxEwkBibrLsDzZfQAX4sXJOE31MY0AOpHTJvF6DLJt0aO1NPjLtvwfU5Q37JW-GBGnA-sbhjOzm6Z5uk2Pn8H76CPIQT1YS7KeCgbtxZ_-GyMl5EWje4lG-OTUeL47f8JfTLaObHxtxuqaktMSdntkfzPMuMoHsPFowvWaDH1rTWLsc5Zo4cTGUBsiS8hw18" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-12 text-center">
-          <h2 className="text-4xl md:text-6xl font-headline mb-12 leading-tight">Looking for an affordable car?</h2>
+          <h2 className="text-4xl md:text-6xl font-headline mb-12 leading-tight">Looking for an exquisite supercar or classic?</h2>
           <Link to="/inventory" className="ignite-button px-12 py-5 text-white font-label text-sm tracking-[0.3em] uppercase font-black shadow-2xl inline-block">
-            View Catalog
+            View Complete UK Catalog
           </Link>
         </div>
       </section>
