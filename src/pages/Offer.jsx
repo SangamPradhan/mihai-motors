@@ -60,7 +60,7 @@ const Offer = () => {
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
-      subject: `Purchase Offer — ${car.year} ${car.make} ${car.model}`,
+      subject: `Flip Offer / Inquiry — ${car.year} ${car.make} ${car.model}`,
       message: `Phone: ${formData.phone}
                 Vehicle: ${car.year} ${car.make} ${car.model}
                 Listed Price: £${car.price.toLocaleString('en-GB')}
@@ -73,8 +73,8 @@ const Offer = () => {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY);
 
       await MySwal.fire({
-        title: <span className="font-headline">Offer Submitted!</span>,
-        html: <p className="font-body text-secondary">Your purchase offer for the {car.model} has been sent. Our VIP acquisitions team will contact you shortly.</p>,
+        title: <span className="font-headline">Inquiry Dispatched!</span>,
+        html: <p className="font-body text-secondary">Your offer for the {car.year} {car.make} {car.model} has been received. Our team will contact you shortly to arrange a viewing or test drive.</p>,
         icon: 'success',
         background: '#121212',
         color: '#ffffff',
@@ -140,7 +140,7 @@ const Offer = () => {
                   <h1 className="font-headline text-4xl md:text-6xl text-on-surface tracking-tight">{car.model}</h1>
                 </div>
                 <div className="text-left md:text-right">
-                  <span className="text-secondary text-xs uppercase tracking-widest block mb-1">Listed UK Price</span>
+                  <span className="text-secondary text-xs uppercase tracking-widest block mb-1">Asking Price</span>
                   <span className="font-headline text-4xl text-primary font-bold">£{car.price.toLocaleString('en-GB')}</span>
                 </div>
               </div>
@@ -208,30 +208,30 @@ const Offer = () => {
               )}
 
               <div className="space-y-6 pt-4">
-                <h3 className="font-headline text-2xl text-on-surface">Vehicle Description</h3>
+                <h3 className="font-headline text-2xl text-on-surface">The Flip Story & Repairs Done</h3>
                 <p className="text-secondary font-body text-base leading-relaxed antialiased">
-                  {car.description || "Experience the pinnacle of automotive engineering with this exceptional vehicle. Every curve and component has been designed to deliver an unforgettable driving experience, blending heritage performance with modern reliability. This vehicle has undergone a rigorous inspection by our certified technicians to ensure it meets our highest standards of excellence."}
+                  {car.description}
                 </p>
 
                 <div className="space-y-4 pt-8">
                   <h3 className="font-headline text-2xl text-on-surface">The Mario Motors Guarantee</h3>
-                  <p className="text-secondary font-body">Our vehicles represent more than just transportation; they are moving art. At Mario Motors, we specialize in curating the finest automotive machines for the discerning collector and enthusiast.</p>
+                  <p className="text-secondary font-body">Every car we flip is mechanically inspected, repaired in our own workshop, and given a clean bill of health before going up for sale.</p>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs tracking-widest uppercase font-bold text-primary">
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      Full HPI & Provenance Certified
+                      Fresh 12-Month MOT Included
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      150-Point Master Diagnostic Check
+                      100-Point Mechanical Diagnostic Check
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      Enclosed UK & Global Transport
+                      Full HPI & Mileage Clear Report
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-sm">verified</span>
-                      Bespoke UK Finance & Part-Exchange
+                      Part-Exchange & UK Delivery Available
                     </li>
                   </ul>
                 </div>
@@ -241,8 +241,8 @@ const Offer = () => {
 
           <div className="w-full lg:w-[40%] xl:w-[35%]">
             <div className="sticky top-32 bg-surface-container p-8 md:p-12 border border-outline-variant/15 shadow-2xl">
-              <h2 className="font-headline text-3xl text-on-surface mb-2">Secure Purchase Offer</h2>
-              <p className="text-secondary text-sm mb-10 leading-relaxed font-body">Submit your formal interest or bid in Pounds Sterling (£). Our VIP acquisitions team will contact you within 12 hours.</p>
+              <h2 className="font-headline text-3xl text-on-surface mb-2">Make An Offer / Inquire</h2>
+              <p className="text-secondary text-sm mb-10 leading-relaxed font-body">Submit your formal interest, offer, or part-exchange inquiry in Pounds Sterling (£). Our sales team will get back to you promptly.</p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
@@ -254,7 +254,7 @@ const Offer = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-surface border border-outline-variant/30 p-4 text-white focus:outline-none focus:border-primary transition-colors text-sm"
-                    placeholder="e.g. Lord James Montgomery"
+                    placeholder="e.g. John Smith"
                   />
                 </div>
 
@@ -268,7 +268,7 @@ const Offer = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full bg-surface border border-outline-variant/30 p-4 text-white focus:outline-none focus:border-primary transition-colors text-sm"
-                      placeholder="client@luxury.co.uk"
+                      placeholder="john.smith@gmail.com"
                     />
                   </div>
                   <div className="space-y-2">
@@ -300,7 +300,7 @@ const Offer = () => {
                     />
                   </div>
                   <p className="text-[10px] text-secondary mt-1 italic">
-                    Current list price: £{car.price.toLocaleString('en-GB')}
+                    Asking price: £{car.price.toLocaleString('en-GB')}
                   </p>
                 </div>
 
@@ -312,7 +312,7 @@ const Offer = () => {
                     onChange={handleChange}
                     rows="4"
                     className="w-full bg-surface border border-outline-variant/30 p-4 text-white focus:outline-none focus:border-primary transition-colors text-sm resize-none"
-                    placeholder="Inquire about UK enclosed delivery, bespoke financing, or part-exchange options..."
+                    placeholder="Inquire about test drives, viewing, part-exchange, or local delivery..."
                   ></textarea>
                 </div>
 
@@ -322,7 +322,7 @@ const Offer = () => {
                   className={`w-full py-5 text-white text-xs uppercase tracking-[0.4em] font-bold transition-all relative overflow-hidden group ${isSubmitting ? 'bg-secondary cursor-not-allowed' : 'bg-primary hover:bg-primary-container active:scale-[0.98]'}`}
                 >
                   <span className={isSubmitting ? 'opacity-0' : 'opacity-100'}>
-                    Submit Purchase Offer
+                    Submit Offer / Booking
                   </span>
                   {isSubmitting && (
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -333,7 +333,7 @@ const Offer = () => {
 
                 <div className="pt-4 text-center">
                   <p className="text-[10px] text-secondary leading-relaxed antialiased">
-                    By submitting this form, you agree to our Terms of Acquisition. Our specialists will verify your details before processing.
+                    We welcome all reasonable offers, part-exchanges, and test drives. Viewings by appointment in our workshop.
                   </p>
                 </div>
               </form>
